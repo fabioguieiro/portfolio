@@ -8,6 +8,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        cream: "#F3F1E8",
+        black: "#000000",
+        tomato: "#F66333",
+        rose: "#F8A9AD",
+        petroleum: "#1B81C4",
+        lightBlue: "#B0D9E6",
+      },
       fontFamily: {
         spicy: ["Spicy Rice", "serif"],
         josefin: ["Josefin Sans", "sans-serif"],
