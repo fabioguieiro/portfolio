@@ -1,15 +1,4 @@
-import Image from "next/image";
-
-export function Avatar() {
-  return (
-    <Image
-      src={`/avatar.png`}
-      alt={"A portrait of me"}
-      width="256"
-      height="256"
-    />
-  );
-}
+import { Avatar } from "../../../public/images/Avatar";
 
 export const Banner = () => {
   return (
