@@ -17,8 +17,9 @@ const config: Config = {
         lightBlue: "#B0D9E6",
       },
       fontFamily: {
-        spicy: ["Spicy Rice", "serif"],
-        josefin: ["Josefin Sans", "sans-serif"],
+        hand: ["Caveat", "cursive"],
+        primary: ["Josefin Sans", "sans-serif"],
+        secondary: ["Spicy Rice", "serif"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
