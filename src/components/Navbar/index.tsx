@@ -3,7 +3,7 @@ import { NavLogo } from "./NavLogo";
 
 export const Navbar = () => {
   return (
-    <nav className="w-full h-16 border-b-4 border-black flex justify-between">
+    <nav className="w-full h-14 border-b-4 border-black flex justify-between">
       <div className="flex">
         <NavLogo />
         <NavItem name="Projetos" />

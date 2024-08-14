@@ -1,4 +1,5 @@
 import { Banner, Navbar } from "@/components";
+import { Footer } from "@/components/Footer";
 import { Timeline } from "@/components/Timeline";
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
 
       <Banner />
       <Timeline />
+      <Footer />
     </main>
   );
 }
