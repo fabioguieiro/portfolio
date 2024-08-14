@@ -13,7 +13,7 @@ import { companyDescriptions } from "./companyDescriptions";
 export const Timeline = () => {
   const [active, setActive] = useState("");
   return (
-    <div className="flex flex-col h-96">
+    <div className="flex flex-col h-72 mb-6">
       <div className="w-full flex justify-center items-center my-8">
         <Versa
           onClick={() => setActive("Versa")}
