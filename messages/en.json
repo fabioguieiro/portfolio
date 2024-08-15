@@ -1,0 +1,11 @@
+{
+  "HomePage": {
+    "title": "Hello World!",
+    "contacts": "Contacts",
+    "timeline": "Timeline",
+    "projects": "Projects",
+    "bannerHeadline": "Hello, I'm Fabio",
+    "bannerDescription": "Front-end developer passionate about creating stunning, user-centered interfaces. I transform complex requirements into elegant and functional designs.",
+    "footer": "made with 💜 by Fabio Guieiro ©"
+  }
+}

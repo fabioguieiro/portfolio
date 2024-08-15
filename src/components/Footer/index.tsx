@@ -1,4 +1,5 @@
 "use client";
+import { useTranslations } from "next-intl";
 import {
   EmailIcon,
   GithubIcon,
@@ -8,6 +9,8 @@ import {
 } from "../../../public/icons";
 
 export const Footer = () => {
+  const t = useTranslations("HomePage");
+
   const handleIconClick = (icon: string) => {
     switch (icon) {
       case "github":
@@ -31,9 +34,7 @@ export const Footer = () => {
   return (
     <footer className="w-full h-14 bg-tomato flex items-center justify-between">
       <div className="w-1/4 px-6">
-        <p className="text-cream font-primary text-sm">
-          Made with 💜 by Fabio Guieiro ©
-        </p>
+        <p className="text-cream font-primary text-sm">{t("footer")}</p>
       </div>
       <div className="w-1/4 flex gap-2 justify-end px-6">
         <GithubIcon onClick={() => handleIconClick("github")} />
