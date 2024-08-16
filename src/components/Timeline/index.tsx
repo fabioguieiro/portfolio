@@ -11,7 +11,16 @@ import { useState } from "react";
 import { companyDescriptions } from "./companyDescriptions";
 
 export const Timeline = () => {
-  const [active, setActive] = useState("");
+  const [active, setActive] = useState<
+    | "Versa"
+    | "Teknisa"
+    | "Forum"
+    | "Queima"
+    | "Inter"
+    | "Btix"
+    | "Casa"
+    | undefined
+  >(undefined);
   return (
     <div className="flex flex-col h-72 mb-6">
       <div className="w-full flex justify-center items-center my-8">
@@ -90,9 +99,11 @@ export const Timeline = () => {
           }  `}
         />
       </div>
-      <p className="w-1/3 h-1/2 self-center font-primary">
-        {companyDescriptions[active]}
-      </p>
+      {active && (
+        <p className="w-1/3 h-1/2 self-center font-primary">
+          {companyDescriptions[active]}
+        </p>
+      )}
     </div>
   );
 };
