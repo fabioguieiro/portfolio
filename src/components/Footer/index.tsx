@@ -32,7 +32,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="w-full h-14 bg-tomato flex items-center justify-between">
+    <footer className="w-full h-14 bg-tomato flex items-center justify-between ">
       <div className="w-1/4 px-6">
         <p className="text-cream font-primary text-sm">{t("footer")}</p>
       </div>

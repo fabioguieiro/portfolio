@@ -12,11 +12,6 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-body {
-  color: #000;
-  background: #f3f1e8;
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;

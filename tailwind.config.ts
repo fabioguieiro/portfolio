@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "selector",
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -15,6 +16,10 @@ const config: Config = {
         rose: "#F8A9AD",
         petroleum: "#1B81C4",
         lightBlue: "#B0D9E6",
+        //dark mode
+        royal: "#132A3F",
+        gold: "#C4B274",
+        brownie: "#9C5D38",
       },
       fontFamily: {
         hand: ["Caveat", "cursive"],

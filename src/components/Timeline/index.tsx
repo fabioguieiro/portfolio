@@ -29,7 +29,9 @@ export const Timeline = () => {
           width={100}
           height={100}
           className={`rounded-full border-4 cursor-pointer ${
-            active === "Versa" ? "border-lime-500" : "border-black"
+            active === "Versa"
+              ? "border-lime-500"
+              : "border-black dark:border-gold"
           }  `}
         />
 
@@ -40,7 +42,9 @@ export const Timeline = () => {
           width={100}
           height={100}
           className={`rounded-full border-4 cursor-pointer ${
-            active === "Teknisa" ? "border-lime-500" : "border-black"
+            active === "Teknisa"
+              ? "border-lime-500"
+              : "border-black dark:border-gold"
           }  `}
         />
 
@@ -51,7 +55,9 @@ export const Timeline = () => {
           width={100}
           height={100}
           className={`rounded-full border-4 cursor-pointer ${
-            active === "Forum" ? "border-lime-500" : "border-black"
+            active === "Forum"
+              ? "border-lime-500"
+              : "border-black dark:border-gold"
           }  `}
         />
 
@@ -62,7 +68,9 @@ export const Timeline = () => {
           width={100}
           height={100}
           className={`rounded-full border-4 cursor-pointer ${
-            active === "Queima" ? "border-lime-500" : "border-black"
+            active === "Queima"
+              ? "border-lime-500"
+              : "border-black dark:border-gold"
           }  `}
         />
 
@@ -72,8 +80,10 @@ export const Timeline = () => {
           onClick={() => setActive("Inter")}
           width={100}
           height={100}
-          className={`rounded-full border-4 cursor-pointer ${
-            active === "Inter" ? "border-lime-500" : "border-black"
+          className={`bg-white rounded-full border-4 cursor-pointer ${
+            active === "Inter"
+              ? "border-lime-500"
+              : "border-black dark:border-gold"
           }  `}
         />
 
@@ -84,7 +94,9 @@ export const Timeline = () => {
           width={100}
           height={100}
           className={`rounded-full border-4 cursor-pointer ${
-            active === "Btix" ? "border-lime-500" : "border-black"
+            active === "Btix"
+              ? "border-lime-500"
+              : "border-black dark:border-gold"
           }  `}
         />
 
@@ -95,7 +107,9 @@ export const Timeline = () => {
           width={100}
           height={100}
           className={`rounded-full border-4 cursor-pointer ${
-            active === "Casa" ? "border-lime-500" : "border-black"
+            active === "Casa"
+              ? "border-lime-500"
+              : "border-black dark:border-gold"
           }  `}
         />
       </div>
