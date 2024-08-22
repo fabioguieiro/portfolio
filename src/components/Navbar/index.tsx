@@ -30,21 +30,22 @@ export const Navbar = () => {
 
   return (
     <nav className="w-full h-14 border-b-4 border-black flex justify-between dark:border-gold">
-      <div className="flex">
+      <div className="block md:hidden">BTN</div>
+      <div className="md:flex md:items-center">
         <NavLogo />
         <NavItem name={t("projects")} />
         <NavItem name={t("timeline")} />
         <NavItem name={t("contacts")} />
       </div>
-      <div className="flex items-center">
-        <button className="mr-10" onClick={handleToggleDarkMode}>
+      <div className="items-center flex">
+        <button className="mr-10 hidden md:flex" onClick={handleToggleDarkMode}>
           {isDarkModeSelected ? (
             <SunIcon color={"#C4B274"} />
           ) : (
             <MoonIcon color={"black"} />
           )}
         </button>
-        <p className="mr-10" onClick={handleChangeLanguage}>
+        <p className="mr-10 hidden md:flex" onClick={handleChangeLanguage}>
           eng / pt-br
         </p>
       </div>
