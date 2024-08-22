@@ -32,11 +32,13 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="w-full h-14 bg-tomato flex items-center justify-between ">
-      <div className="w-1/4 px-6">
-        <p className="text-cream font-primary text-sm">{t("footer")}</p>
+    <footer className="w-full h-12 md:h-14 bg-tomato flex items-center justify-between ">
+      <div className="w-2/4 md:w-1/4 px-1 md:px-6">
+        <p className="text-cream font-primary text-xs md:text-sm">
+          {t("footer")}
+        </p>
       </div>
-      <div className="w-1/4 flex gap-2 justify-end px-6">
+      <div className="w-1/4 flex gap-2 justify-end px-1 md:px-6">
         <GithubIcon onClick={() => handleIconClick("github")} />
         <EmailIcon onClick={() => handleIconClick("email")} />
         <LinkedinIcon onClick={() => handleIconClick("linkedin")} />
