@@ -22,8 +22,8 @@ export const Timeline = () => {
     | undefined
   >(undefined);
   return (
-    <div className="flex-col h-48 md:h-72 mb-6 ">
-      <div className="justify-center items-center my-8 hidden md:flex">
+    <div className="flex-col h-48 py-8 md:h-72 pb-6 bg-cream text-black dark:bg-royal dark:text-gold">
+      <div className="justify-center items-center  hidden md:flex">
         <Versa
           onClick={() => setActive("Versa")}
           width={100}
@@ -65,7 +65,7 @@ export const Timeline = () => {
 
         <Queima
           onClick={() => setActive("Queima")}
-          className={`lg:w-60 sm:w-10 rounded-full border-4 cursor-pointer ${
+          className={`lg:w-24 sm:w-10 rounded-full border-4 cursor-pointer ${
             active === "Queima"
               ? "border-lime-500"
               : "border-black dark:border-gold"
