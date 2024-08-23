@@ -5,4 +5,6 @@ export type TNavItemsProps = {
 
 export type TNavbarProps = {
   disabledButton?: string;
+  isMobileMenuOpen: boolean;
+  setIsMobileMenuOpen: (val: boolean) => void;
 };

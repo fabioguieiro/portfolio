@@ -23,7 +23,7 @@ export const Timeline = () => {
   >(undefined);
   return (
     <div className="flex-col h-48 py-8 md:h-72 pb-6 bg-cream text-black dark:bg-royal dark:text-gold">
-      <div className="justify-center items-center  hidden md:flex">
+      <div className="justify-center items-center flex">
         <Versa
           onClick={() => setActive("Versa")}
           width={100}

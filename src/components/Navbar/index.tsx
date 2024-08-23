@@ -10,8 +10,14 @@ import { MoonIcon } from "../../../public/icons/MoonIcon";
 import { SunIcon } from "../../../public/icons/SunIcon";
 import { TNavbarProps } from "./types";
 import { usePathname } from "next/navigation";
+import { MenuIcon } from "../../../public/icons/MenuIcon";
+import { ExitIcon } from "../../../public/icons/ExitIcon";
 
-export const Navbar = ({ disabledButton }: TNavbarProps) => {
+export const Navbar = ({
+  disabledButton,
+  isMobileMenuOpen,
+  setIsMobileMenuOpen,
+}: TNavbarProps) => {
   const t = useTranslations("HomePage");
   const router = useRouter();
   const locale = useLocale();
@@ -46,9 +52,19 @@ export const Navbar = ({ disabledButton }: TNavbarProps) => {
     }
   };
 
+  const handleOpenMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <nav className="w-full h-14 border-b-4 border-black flex justify-between dark:border-gold bg-cream text-black dark:bg-royal dark:text-gold">
-      <div className="block md:hidden">BTN</div>
+      <div className="md:hidden flex items-center justify-center mx-4">
+        {isMobileMenuOpen ? (
+          <ExitIcon onClick={handleOpenMobileMenu} />
+        ) : (
+          <MenuIcon onClick={handleOpenMobileMenu} />
+        )}
+      </div>
       <div className="md:flex md:items-center">
         <NavLogo />
         <NavItem name={t("projects")} />
