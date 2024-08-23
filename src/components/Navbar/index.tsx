@@ -29,7 +29,7 @@ export const Navbar = () => {
   }, [isDarkModeSelected]);
 
   return (
-    <nav className="w-full h-14 border-b-4 border-black flex justify-between dark:border-gold">
+    <nav className="w-full h-14 border-b-4 border-black flex justify-between dark:border-gold bg-cream text-black dark:bg-royal dark:text-gold">
       <div className="block md:hidden">BTN</div>
       <div className="md:flex md:items-center">
         <NavLogo />
