@@ -22,8 +22,8 @@ export const Timeline = () => {
     | undefined
   >("Casa");
   return (
-    <div className="flex-col h-full w-full py-8 pb-6 bg-cream text-black dark:bg-royal dark:text-gold">
-      <div className="justify-center items-center flex">
+    <div className="flex-col h-full w-full py-8 pb-6 bg-cream text-black dark:bg-royal dark:text-gold flex items-center">
+      <div className="w-full px-4 justify-center items-center flex overflow-x-scroll mb-10">
         <Versa
           onClick={() => setActive("Versa")}
           className={` rounded-full border-4 cursor-pointer border-black dark:border-gold ${
@@ -86,9 +86,31 @@ export const Timeline = () => {
         />
       </div>
       {active && (
-        <p className="w-1/3 h-1/2 self-center font-primary">
-          {JSON.stringify(companyDescriptions[active])}
-        </p>
+        <>
+          <div className="bg-cream w-96 h-52 rounded-lg border-black border-2">
+            <div className="bg-purple-400 w-full h-4 rounded-t-md border-b-2 border-black flex items-center px-1 gap-0.5">
+              <div
+                className="rounded-full  w-2 h-2 bg-red-400"
+                style={{ border: "solid 1px black" }}
+              ></div>
+              <div
+                className="rounded-full  w-2 h-2 bg-yellow-400"
+                style={{ border: "solid 1px black" }}
+              ></div>
+              <div
+                className="rounded-full  w-2 h-2 bg-green-400"
+                style={{ border: "solid 1px black" }}
+              ></div>
+            </div>
+            <div className="px-2 py-2">
+              <p className="text-xl font-bold">
+                {companyDescriptions[active].jobTitle}
+              </p>
+              <p>{companyDescriptions[active].company}</p>
+              <p>{companyDescriptions[active].period}</p>
+            </div>
+          </div>
+        </>
       )}
     </div>
   );
