@@ -16,7 +16,8 @@ export const companyDescriptions = {
       "GIT",
     ],
     achievements: [
-      "Contributed to the translation of the code from FoxPro to ASP.NET, bringing modernity to an old code base",
+      "Contributed to the translation of the code from FoxPro to ASP.NET",
+      "The new project improved significantly the performance of the application",
     ],
     responsabilities: ["Software Development"],
   },
@@ -37,7 +38,8 @@ export const companyDescriptions = {
       "GIT",
     ],
     achievements: [
-      "Developed a user-friendly interface for an AI project was aplied on a big fast food chain.",
+      "Developed a user-friendly interface for an AI project.",
+      "The project was implemented in a big fast-food chain.",
     ],
     responsabilities: ["Software Development", "Project Management"],
   },
@@ -59,7 +61,8 @@ export const companyDescriptions = {
       "GIT",
     ],
     achievements: [
-      "I was responsible for creating a B2C online store for a company that had previously only sold their entire catalog, thus diversifying the company's products and consequently increasing profitability,",
+      "Release of a B2C online store, diversifying the company's products",
+      "Through my project, the company profit increased 23%",
     ],
     responsabilities: ["Software Development", "Deployment", "Design"],
   },

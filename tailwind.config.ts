@@ -16,6 +16,7 @@ const config: Config = {
         rose: "#F8A9AD",
         petroleum: "#1B81C4",
         lightBlue: "#B0D9E6",
+        turquoise: "#90d5d0",
         //dark mode
         royal: "#132A3F",
         gold: "#C4B274",
