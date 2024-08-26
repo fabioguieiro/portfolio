@@ -6,6 +6,13 @@ import { Queima } from "../../../public/images/Queima";
 import { Inter } from "../../../public/images/Inter";
 import { Btix } from "../../../public/images/Btix";
 import { Casa } from "../../../public/images/Casa";
+import { Computer } from "../../../public/images/Computer";
+import { Pizza } from "../../../public/images/Pizza";
+import { Book } from "../../../public/images/Book";
+import { Lifting } from "../../../public/images/Lifting";
+import { Money } from "../../../public/images/Money";
+import { Tickets } from "../../../public/images/Ticket";
+import { TV } from "../../../public/images/TV";
 import { DashedConnector } from "../DashedConnector";
 import { useState } from "react";
 import { companyDescriptions } from "./companyDescriptions";
@@ -21,6 +28,25 @@ export const Timeline = () => {
     | "Casa"
     | undefined
   >("Casa");
+
+  const getIllustration = () => {
+    switch (active) {
+      case "Versa":
+        return <Computer width={160} height={160} />;
+      case "Teknisa":
+        return <Pizza width={120} height={120} />;
+      case "Forum":
+        return <Book width={130} height={130} />;
+      case "Queima":
+        return <Lifting width={140} height={140} />;
+      case "Inter":
+        return <Money width={140} height={140} />;
+      case "Btix":
+        return <Tickets width={140} height={140} />;
+      case "Casa":
+        return <TV width={140} height={140} />;
+    }
+  };
   return (
     <div className="flex-col h-full w-full py-8 pb-6 bg-cream text-black dark:bg-royal dark:text-gold flex items-center">
       <div className="w-full px-4 justify-center items-center flex overflow-x-scroll mb-10">
@@ -87,7 +113,7 @@ export const Timeline = () => {
       </div>
       {active && (
         <>
-          <div className="bg-cream w-96 h-52 rounded-lg border-black border-2">
+          <div className="bg-cream w-96 h-52 rounded-lg border-black border-2 relative">
             <div className="bg-purple-400 w-full h-4 rounded-t-md border-b-2 border-black flex items-center px-1 gap-0.5">
               <div
                 className="rounded-full  w-2 h-2 bg-red-400"
@@ -109,6 +135,7 @@ export const Timeline = () => {
               <p>{companyDescriptions[active].company}</p>
               <p>{companyDescriptions[active].period}</p>
             </div>
+            <div className="absolute right-2 bottom-1">{getIllustration()}</div>
           </div>
         </>
       )}
