@@ -15,12 +15,16 @@ export const Card = ({
 }: TCardProps) => {
   return (
     <div
-      className={`bg-cream w-96 rounded-lg border-black border-2 relative mt-4 min-h-52`}
+      className={`bg-cream w-96 md:w-[28rem] rounded-lg border-black border-2 relative mt-4 min-h-52 `}
     >
       <CardHeader />
-      <div className="flex ">
+      <div
+        className={`flex items-center ${
+          !image && "flex flex-col justify-center"
+        }`}
+      >
         {!imageOnRight && <div className="h-32 w-1/3 self-center">{image}</div>}
-        <div className="px-2 w-2/3 py-2">
+        <div className={`px-2 w-2/3 py-2 ${!image && "w-full"}`}>
           <p className="text-xl font-bold mb-3">{title}</p>
           {children}
         </div>

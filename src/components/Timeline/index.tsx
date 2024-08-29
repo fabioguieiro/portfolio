@@ -18,6 +18,7 @@ import { DashedConnector } from "../DashedConnector";
 import { useState } from "react";
 import { companyDescriptions } from "./companyDescriptions";
 import { Card } from "../Card";
+import { TechBadge } from "../TechBadge";
 
 export const Timeline = () => {
   const [active, setActive] = useState<
@@ -51,7 +52,7 @@ export const Timeline = () => {
   };
   return (
     <div className="flex-col h-full w-full py-8 pb-6 bg-cream text-black dark:bg-royal dark:text-gold flex items-center">
-      <div className="w-full px-4 justify-center items-center flex overflow-x-scroll mb-10">
+      <div className="w-full px-4 justify-center items-center flex md:mb-10">
         <Versa
           onClick={() => setActive("Versa")}
           className={` rounded-full border-4 cursor-pointer border-black dark:border-gold ${
@@ -114,41 +115,53 @@ export const Timeline = () => {
         />
       </div>
       {active && (
-        <>
-          <Card
-            imageOnRight
-            title={companyDescriptions[active].jobTitle}
-            image={getIllustration()}
-          >
-            <p>{companyDescriptions[active].company}</p>
-            <p>{companyDescriptions[active].period}</p>
-          </Card>
-          <Card
-            title="Achievements"
-            image={<Trophy width={150} height={150} />}
-          >
-            <ul>
-              {companyDescriptions[active].achievements.map(
-                (achievement: string) => (
-                  <li
-                    className=" bg-turquoise mb-2 rounded-full flex items-center justify-start  py-1 px-2"
-                    key={achievement}
-                  >
-                    <div className="w-1/6">
-                      <div className="w-5 h-5 rounded-full bg-yellow-300 border-black border "></div>
-                    </div>
+        <div className="md:flex gap-8">
+          <div className="flex flex-col">
+            <Card
+              imageOnRight
+              title={companyDescriptions[active].jobTitle}
+              image={getIllustration()}
+            >
+              <p>{companyDescriptions[active].company}</p>
+              <p>{companyDescriptions[active].period}</p>
+            </Card>
+            <Card
+              title="Achievements"
+              image={<Trophy width={150} height={150} />}
+            >
+              <ul>
+                {companyDescriptions[active].achievements.map(
+                  (achievement: string) => (
+                    <li
+                      className=" bg-turquoise mb-2 rounded-full flex items-center justify-start  py-1 px-2"
+                      key={achievement}
+                    >
+                      <div className="w-1/6">
+                        <div className="w-5 h-5 rounded-full bg-yellow-300 border-black border "></div>
+                      </div>
 
-                    <div className="w-5/6">
-                      <p style={{ fontSize: 8 }} className="text-xs text-start">
-                        {achievement}
-                      </p>
-                    </div>
-                  </li>
-                )
-              )}
-            </ul>
+                      <div className="w-5/6">
+                        <p
+                          style={{ fontSize: 8 }}
+                          className="text-xs text-start"
+                        >
+                          {achievement}
+                        </p>
+                      </div>
+                    </li>
+                  )
+                )}
+              </ul>
+            </Card>
+          </div>
+          <Card title="Technologies" image={null} imageOnRight>
+            <div className="grid grid-cols-3 ml-3 md:ml-0 md:grid-cols-4 gap-4">
+              {companyDescriptions[active].techStack.map((tech: string) => (
+                <TechBadge key={tech} name={tech} />
+              ))}
+            </div>
           </Card>
-        </>
+        </div>
       )}
     </div>
   );
