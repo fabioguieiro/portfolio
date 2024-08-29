@@ -17,6 +17,7 @@ import { Trophy } from "../../../public/images/Trophy";
 import { DashedConnector } from "../DashedConnector";
 import { useState } from "react";
 import { companyDescriptions } from "./companyDescriptions";
+import { Card } from "../Card";
 
 export const Timeline = () => {
   const [active, setActive] = useState<
@@ -114,77 +115,39 @@ export const Timeline = () => {
       </div>
       {active && (
         <>
-          <div className="bg-cream w-96 h-52 rounded-lg border-black border-2  relative">
-            <div className="bg-purple-400 w-full h-4 rounded-t-md border-b-2 border-black flex items-center px-1 gap-0.5">
-              <div
-                className="rounded-full  w-2 h-2 bg-red-400"
-                style={{ border: "solid 1px black" }}
-              ></div>
-              <div
-                className="rounded-full  w-2 h-2 bg-yellow-400"
-                style={{ border: "solid 1px black" }}
-              ></div>
-              <div
-                className="rounded-full  w-2 h-2 bg-green-400"
-                style={{ border: "solid 1px black" }}
-              ></div>
-            </div>
-            <div className="px-2 py-2">
-              <p className="text-xl font-bold">
-                {companyDescriptions[active].jobTitle}
-              </p>
-              <p>{companyDescriptions[active].company}</p>
-              <p>{companyDescriptions[active].period}</p>
-            </div>
-            <div className="absolute right-2 bottom-1">{getIllustration()}</div>
-          </div>
-          <div className="bg-cream w-96 h-auto rounded-lg border-black border-2 relative mt-4">
-            <div className="bg-purple-400 w-full h-4 rounded-t-md border-b-2 border-black flex items-center px-1 gap-0.5">
-              <div
-                className="rounded-full  w-2 h-2 bg-red-400"
-                style={{ border: "solid 1px black" }}
-              ></div>
-              <div
-                className="rounded-full  w-2 h-2 bg-yellow-400"
-                style={{ border: "solid 1px black" }}
-              ></div>
-              <div
-                className="rounded-full  w-2 h-2 bg-green-400"
-                style={{ border: "solid 1px black" }}
-              ></div>
-            </div>
-            <div className="flex ">
-              <div className="h-32 w-1/3 self-center">
-                <Trophy width={150} height={150} />
-              </div>
-              <div className="px-2 w-2/3 py-2">
-                <p className="text-xl font-bold mb-3">Achievements</p>
-                <ul>
-                  {companyDescriptions[active].achievements.map(
-                    (achievement) => (
-                      <li
-                        className=" bg-turquoise mb-2 rounded-full flex items-center justify-start  py-1 px-2"
-                        key={achievement}
-                      >
-                        <div className="w-1/6">
-                          <div className="w-5 h-5 rounded-full bg-yellow-300 border-black border "></div>
-                        </div>
+          <Card
+            imageOnRight
+            title={companyDescriptions[active].jobTitle}
+            image={getIllustration()}
+          >
+            <p>{companyDescriptions[active].company}</p>
+            <p>{companyDescriptions[active].period}</p>
+          </Card>
+          <Card
+            title="Achievements"
+            image={<Trophy width={150} height={150} />}
+          >
+            <ul>
+              {companyDescriptions[active].achievements.map(
+                (achievement: string) => (
+                  <li
+                    className=" bg-turquoise mb-2 rounded-full flex items-center justify-start  py-1 px-2"
+                    key={achievement}
+                  >
+                    <div className="w-1/6">
+                      <div className="w-5 h-5 rounded-full bg-yellow-300 border-black border "></div>
+                    </div>
 
-                        <div className="w-5/6">
-                          <p
-                            style={{ fontSize: 8 }}
-                            className="text-xs text-start"
-                          >
-                            {achievement}
-                          </p>
-                        </div>
-                      </li>
-                    )
-                  )}
-                </ul>
-              </div>
-            </div>
-          </div>
+                    <div className="w-5/6">
+                      <p style={{ fontSize: 8 }} className="text-xs text-start">
+                        {achievement}
+                      </p>
+                    </div>
+                  </li>
+                )
+              )}
+            </ul>
+          </Card>
         </>
       )}
     </div>

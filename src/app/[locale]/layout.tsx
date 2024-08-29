@@ -13,7 +13,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html className="dark" lang={locale}>
+    <html className="" lang={locale}>
       <head>
         <meta
           name="viewport"
