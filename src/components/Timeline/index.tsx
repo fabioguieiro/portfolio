@@ -6,9 +6,19 @@ import { Queima } from "../../../public/images/Queima";
 import { Inter } from "../../../public/images/Inter";
 import { Btix } from "../../../public/images/Btix";
 import { Casa } from "../../../public/images/Casa";
+import { Computer } from "../../../public/images/Computer";
+import { Pizza } from "../../../public/images/Pizza";
+import { Book } from "../../../public/images/Book";
+import { Lifting } from "../../../public/images/Lifting";
+import { Money } from "../../../public/images/Money";
+import { Tickets } from "../../../public/images/Ticket";
+import { TV } from "../../../public/images/TV";
+import { Trophy } from "../../../public/images/Trophy";
 import { DashedConnector } from "../DashedConnector";
 import { useState } from "react";
 import { companyDescriptions } from "./companyDescriptions";
+import { Card } from "../Card";
+import { TechBadge } from "../TechBadge";
 
 export const Timeline = () => {
   const [active, setActive] = useState<
@@ -20,18 +30,33 @@ export const Timeline = () => {
     | "Btix"
     | "Casa"
     | undefined
-  >(undefined);
+  >("Casa");
+
+  const getIllustration = () => {
+    switch (active) {
+      case "Versa":
+        return <Computer width={160} height={160} />;
+      case "Teknisa":
+        return <Pizza width={120} height={120} />;
+      case "Forum":
+        return <Book width={130} height={130} />;
+      case "Queima":
+        return <Lifting width={140} height={140} />;
+      case "Inter":
+        return <Money width={140} height={140} />;
+      case "Btix":
+        return <Tickets width={140} height={140} />;
+      case "Casa":
+        return <TV width={140} height={140} />;
+    }
+  };
   return (
-    <div className="flex-col h-48 py-8 md:h-72 pb-6 bg-cream text-black dark:bg-royal dark:text-gold">
-      <div className="justify-center items-center flex">
+    <div className="flex-col h-full w-full py-8 pb-6 bg-cream text-black dark:bg-royal dark:text-gold flex items-center">
+      <div className="w-full px-4 justify-center items-center flex md:mb-10">
         <Versa
           onClick={() => setActive("Versa")}
-          width={100}
-          height={100}
-          className={`rounded-full border-4 cursor-pointer ${
-            active === "Versa"
-              ? "border-lime-500"
-              : "border-black dark:border-gold"
+          className={` rounded-full border-4 cursor-pointer border-black dark:border-gold ${
+            active === "Versa" ? "md:w-32 w-14" : "md:w-24 w-10"
           }  `}
         />
 
@@ -39,12 +64,8 @@ export const Timeline = () => {
 
         <Teknisa
           onClick={() => setActive("Teknisa")}
-          width={100}
-          height={100}
-          className={`rounded-full border-4 cursor-pointer ${
-            active === "Teknisa"
-              ? "border-lime-500"
-              : "border-black dark:border-gold"
+          className={`rounded-full border-4 cursor-pointer border-black dark:border-gold ${
+            active === "Teknisa" ? "md:w-32 w-14" : "w-10 md:w-24 "
           }  `}
         />
 
@@ -52,12 +73,8 @@ export const Timeline = () => {
 
         <Forum
           onClick={() => setActive("Forum")}
-          width={100}
-          height={100}
-          className={`rounded-full border-4 cursor-pointer ${
-            active === "Forum"
-              ? "border-lime-500"
-              : "border-black dark:border-gold"
+          className={` rounded-full border-4 cursor-pointer border-black dark:border-gold ${
+            active === "Forum" ? "md:w-32 w-14" : "md:w-24 w-10"
           }  `}
         />
 
@@ -65,10 +82,8 @@ export const Timeline = () => {
 
         <Queima
           onClick={() => setActive("Queima")}
-          className={`lg:w-24 sm:w-10 rounded-full border-4 cursor-pointer ${
-            active === "Queima"
-              ? "border-lime-500"
-              : "border-black dark:border-gold"
+          className={` rounded-full border-4 cursor-pointer border-black dark:border-gold ${
+            active === "Queima" ? "md:w-32 w-14" : "md:w-24 w-10"
           }  `}
         />
 
@@ -76,12 +91,8 @@ export const Timeline = () => {
 
         <Inter
           onClick={() => setActive("Inter")}
-          width={100}
-          height={100}
-          className={`bg-white rounded-full border-4 cursor-pointer ${
-            active === "Inter"
-              ? "border-lime-500"
-              : "border-black dark:border-gold"
+          className={` rounded-full border-4 cursor-pointer border-black dark:border-gold ${
+            active === "Inter" ? "md:w-32 w-14" : "md:w-24 w-10"
           }  `}
         />
 
@@ -89,12 +100,8 @@ export const Timeline = () => {
 
         <Btix
           onClick={() => setActive("Btix")}
-          width={100}
-          height={100}
-          className={`rounded-full border-4 cursor-pointer ${
-            active === "Btix"
-              ? "border-lime-500"
-              : "border-black dark:border-gold"
+          className={`rounded-full border-4 cursor-pointer border-black dark:border-gold ${
+            active === "Btix" ? "md:w-32 w-14" : "md:w-24 w-10"
           }  `}
         />
 
@@ -102,19 +109,59 @@ export const Timeline = () => {
 
         <Casa
           onClick={() => setActive("Casa")}
-          width={100}
-          height={100}
-          className={`rounded-full border-4 cursor-pointer ${
-            active === "Casa"
-              ? "border-lime-500"
-              : "border-black dark:border-gold"
+          className={`rounded-full border-4 cursor-pointer border-black dark:border-gold ${
+            active === "Casa" ? "md:w-32 w-14" : "md:w-24 w-10"
           }  `}
         />
       </div>
       {active && (
-        <p className="w-1/3 h-1/2 self-center font-primary">
-          {companyDescriptions[active]}
-        </p>
+        <div className="md:flex gap-8">
+          <div className="flex flex-col">
+            <Card
+              imageOnRight
+              title={companyDescriptions[active].jobTitle}
+              image={getIllustration()}
+            >
+              <p>{companyDescriptions[active].company}</p>
+              <p>{companyDescriptions[active].period}</p>
+            </Card>
+            <Card
+              title="Achievements"
+              image={<Trophy width={150} height={150} />}
+            >
+              <ul>
+                {companyDescriptions[active].achievements.map(
+                  (achievement: string) => (
+                    <li
+                      className=" bg-turquoise mb-2 rounded-full flex items-center justify-start  py-1 px-2"
+                      key={achievement}
+                    >
+                      <div className="w-1/6">
+                        <div className="w-5 h-5 rounded-full bg-yellow-300 border-black border "></div>
+                      </div>
+
+                      <div className="w-5/6">
+                        <p
+                          style={{ fontSize: 8 }}
+                          className="text-xs text-start"
+                        >
+                          {achievement}
+                        </p>
+                      </div>
+                    </li>
+                  )
+                )}
+              </ul>
+            </Card>
+          </div>
+          <Card title="Technologies" image={null} imageOnRight>
+            <div className="grid grid-cols-3 ml-3 md:ml-0 md:grid-cols-4 gap-4">
+              {companyDescriptions[active].techStack.map((tech: string) => (
+                <TechBadge key={tech} name={tech} />
+              ))}
+            </div>
+          </Card>
+        </div>
       )}
     </div>
   );

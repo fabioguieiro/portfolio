@@ -85,7 +85,7 @@ const Career = () => {
           </div>
         </div>
       )}{" "}
-      <div className="overflow-scroll">
+      <div className="w-full overflow-x-scroll">
         <Timeline />
       </div>
     </main>

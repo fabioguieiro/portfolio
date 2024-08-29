@@ -21,12 +21,11 @@ export const Navbar = ({
   const t = useTranslations("HomePage");
   const router = useRouter();
   const locale = useLocale();
-  const [isDarkModeSelected, setIsDarkModeSelected] = useState<Boolean>(true);
+  const [isDarkModeSelected, setIsDarkModeSelected] = useState<Boolean>(false);
   const paths = usePathname().split("/");
 
   const handleChangeLanguage = () => {
     if (paths.length > 2) {
-      console.log("paths > 2", paths);
       if (paths[1] === "en") {
         router.replace(`/pt/${paths.slice(2).join("/")}`);
       } else if (paths[1] === "pt") {
