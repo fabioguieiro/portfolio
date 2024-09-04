@@ -7,6 +7,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 import { MoonIcon } from "../../../public/icons/MoonIcon";
 import { SunIcon } from "../../../public/icons/SunIcon";
+import { Work } from "@/components/Work";
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -50,7 +51,7 @@ export default function Home() {
         setIsMobileMenuOpen={setIsMobileMenuOpen}
       />
       {isMobileMenuOpen && (
-        <div className="absolute w-3/4 bg-cream dark:bg-royal h-full md:hidden">
+        <div className="absolute w-3/4 bg-cream dark:bg-royal h-full md:hidden ">
           <div className="flex flex-col items-center h-full py-12">
             <button className="w-full h-14 px-8 text-xl border-r-4 font-primary border-black hover:underline dark:border-gold dark:text-gold md:flex md:h-full md:items-center">
               {t("projects")}
@@ -85,6 +86,7 @@ export default function Home() {
         </div>
       )}
       <Banner />
+      <Work />
       <Footer />
     </main>
   );
