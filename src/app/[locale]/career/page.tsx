@@ -6,6 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 import { SunIcon } from "../../../../public/icons/SunIcon";
 import { MoonIcon } from "../../../../public/icons/MoonIcon";
+import { DownloadCVButton } from "@/components/DownloadCVButton";
 
 const Career = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -88,6 +89,7 @@ const Career = () => {
       <div className="w-full overflow-x-scroll">
         <Timeline />
       </div>
+      <DownloadCVButton />
     </main>
   );
 };
