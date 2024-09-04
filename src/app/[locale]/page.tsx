@@ -8,6 +8,7 @@ import { useCallback, useState } from "react";
 import { MoonIcon } from "../../../public/icons/MoonIcon";
 import { SunIcon } from "../../../public/icons/SunIcon";
 import { Work } from "@/components/Work";
+import { DownloadCVButton } from "@/components/DownloadCVButton";
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -88,6 +89,7 @@ export default function Home() {
       <Banner />
       <Work />
       <Footer />
+      <DownloadCVButton />
     </main>
   );
 }
