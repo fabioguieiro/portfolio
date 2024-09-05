@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { NavItem } from "@/components/Navbar/NavItem";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { RefObject, useCallback, useEffect, useRef, useState } from "react";
 import { MoonIcon } from "../../../public/icons/MoonIcon";
 import { SunIcon } from "../../../public/icons/SunIcon";
 import { Work } from "@/components/Work";
@@ -51,7 +51,10 @@ export default function Home() {
       setIsMobileMenuOpen(false);
     }
     projectsRef.current &&
-      projectsRef.current.scrollIntoView({ behavior: "smooth" });
+      //@ts-ignore
+      projectsRef.current?.scrollIntoView({
+        behavior: "smooth",
+      });
   };
 
   return (
