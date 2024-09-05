@@ -12,6 +12,8 @@ import { TNavbarProps } from "./types";
 import { usePathname } from "next/navigation";
 import { MenuIcon } from "../../../public/icons/MenuIcon";
 import { ExitIcon } from "../../../public/icons/ExitIcon";
+import { UKFlagIcon } from "../../../public/icons/UKFlagIcon";
+import { BrazilFlagIcon } from "../../../public/icons/BrazilFlagIcon";
 
 export const Navbar = ({
   disabledButton,
@@ -23,16 +25,25 @@ export const Navbar = ({
   const locale = useLocale();
   const [isDarkModeSelected, setIsDarkModeSelected] = useState<Boolean>(false);
   const paths = usePathname().split("/");
+  const [currentLanguage, setCurrentLanguage] = useState(paths[1]);
 
-  const handleChangeLanguage = () => {
+  const handleChangeLanguage = (language: "en" | "pt") => {
     if (paths.length > 2) {
-      if (paths[1] === "en") {
+      if (language === "pt") {
         router.replace(`/pt/${paths.slice(2).join("/")}`);
-      } else if (paths[1] === "pt") {
+        setCurrentLanguage("pt");
+      } else if (language === "en") {
         router.replace(`/en/${paths.slice(2).join("/")}`);
+        setCurrentLanguage("en");
       }
     } else {
-      locale === "en" ? router.replace("/pt") : router.replace("/en");
+      if (language === "pt") {
+        router.replace("/pt");
+        setCurrentLanguage("pt");
+      } else if (language === "en") {
+        router.replace("/en");
+        setCurrentLanguage("en");
+      }
     }
   };
 
@@ -78,9 +89,26 @@ export const Navbar = ({
             <MoonIcon color={"black"} />
           )}
         </button>
-        <p className="mr-10 hidden md:flex" onClick={handleChangeLanguage}>
-          eng / pt-br
-        </p>
+        <div className="mr-10 hidden md:flex md:gap-2">
+          <UKFlagIcon
+            style={{
+              width: 30,
+              height: 30,
+              filter: currentLanguage === "en" ? "none" : "grayscale(100%)",
+              cursor: "pointer",
+            }}
+            onClick={() => handleChangeLanguage("en")}
+          />
+          <BrazilFlagIcon
+            style={{
+              width: 30,
+              height: 30,
+              filter: currentLanguage === "pt" ? "none" : "grayscale(100%)",
+              cursor: "pointer",
+            }}
+            onClick={() => handleChangeLanguage("pt")}
+          />
+        </div>
       </div>
     </nav>
   );
