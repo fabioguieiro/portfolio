@@ -19,6 +19,7 @@ export const Navbar = ({
   disabledButton,
   isMobileMenuOpen,
   setIsMobileMenuOpen,
+  onClickProjects,
 }: TNavbarProps) => {
   const t = useTranslations("HomePage");
   const router = useRouter();
@@ -77,12 +78,12 @@ export const Navbar = ({
       </div>
       <div className="md:flex md:items-center">
         <NavLogo />
-        <NavItem name={t("projects")} />
+        <NavItem onClick={onClickProjects} name={t("projects")} />
         <NavItem onClick={handleRouteToCarrer} name={t("timeline")} />
         <NavItem name={t("contacts")} />
       </div>
       <div className="items-center flex">
-        <button className="mr-10 hidden md:flex" onClick={handleToggleDarkMode}>
+        <button className="mr-4 hidden md:flex" onClick={handleToggleDarkMode}>
           {isDarkModeSelected ? (
             <SunIcon color={"#C4B274"} />
           ) : (

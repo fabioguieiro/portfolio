@@ -48,19 +48,20 @@ const Career = () => {
       <Navbar
         isMobileMenuOpen={isMobileMenuOpen}
         setIsMobileMenuOpen={setIsMobileMenuOpen}
+        onClickProjects={handleRouteToHome}
         disabledButton={"career"}
       />
       {isMobileMenuOpen && (
-        <div className="absolute w-3/4 bg-cream dark:bg-royal h-full md:hidden">
+        <div className="absolute w-3/4 bg-cream dark:bg-royal h-full md:hidden z-50">
           <div className="flex flex-col items-center h-full py-12">
-            <button className="w-full h-14 px-8 text-xl border-r-4 font-primary border-black hover:underline dark:border-gold dark:text-gold md:flex md:h-full md:items-center">
-              {t("projects")}
-            </button>
-
             <button
               onClick={handleRouteToHome}
               className="w-full h-14 px-8 text-xl border-r-4 font-primary border-black hover:underline dark:border-gold dark:text-gold md:flex md:h-full md:items-center"
             >
+              {t("projects")}
+            </button>
+
+            <button className="w-full h-14 px-8 text-xl border-r-4 font-primary border-black hover:underline dark:border-gold dark:text-gold md:flex md:h-full md:items-center">
               {t("timeline")}
             </button>
 

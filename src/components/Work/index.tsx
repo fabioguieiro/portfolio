@@ -7,7 +7,7 @@ import { AppForum } from "../../../public/images/AppForum";
 export const Work = () => {
   return (
     <div className="w-full flex flex-col items-center justify-center">
-      <h1 className="font-primary text-6xl self-start ml-4 mt-4">Work</h1>
+      <h1 className="font-primary text-6xl self-start ml-4 mt-4">Projects</h1>
       <div className="w-11/12 h-auto grid md:grid-cols-3  gap-x-8 ">
         <div className="border-black p-2 border-2 mt-4 w-full h-auto">
           <a

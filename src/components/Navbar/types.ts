@@ -7,4 +7,5 @@ export type TNavbarProps = {
   disabledButton?: string;
   isMobileMenuOpen: boolean;
   setIsMobileMenuOpen: (val: boolean) => void;
+  onClickProjects: () => void;
 };
