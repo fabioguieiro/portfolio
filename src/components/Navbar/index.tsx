@@ -12,38 +12,22 @@ import { TNavbarProps } from "./types";
 import { usePathname } from "next/navigation";
 import { MenuIcon } from "../../../public/icons/MenuIcon";
 import { ExitIcon } from "../../../public/icons/ExitIcon";
+import { UKFlagIcon } from "../../../public/icons/UKFlagIcon";
+import { BrazilFlagIcon } from "../../../public/icons/BrazilFlagIcon";
 
 export const Navbar = ({
   disabledButton,
   isMobileMenuOpen,
   setIsMobileMenuOpen,
+  onClickProjects,
+  handleChangeLanguage,
+  currentLanguage,
+  handleToggleDarkMode,
+  isDarkModeOn,
 }: TNavbarProps) => {
   const t = useTranslations("HomePage");
   const router = useRouter();
   const locale = useLocale();
-  const [isDarkModeSelected, setIsDarkModeSelected] = useState<Boolean>(false);
-  const paths = usePathname().split("/");
-
-  const handleChangeLanguage = () => {
-    if (paths.length > 2) {
-      if (paths[1] === "en") {
-        router.replace(`/pt/${paths.slice(2).join("/")}`);
-      } else if (paths[1] === "pt") {
-        router.replace(`/en/${paths.slice(2).join("/")}`);
-      }
-    } else {
-      locale === "en" ? router.replace("/pt") : router.replace("/en");
-    }
-  };
-
-  const handleToggleDarkMode = useCallback(() => {
-    setIsDarkModeSelected((prev) => !prev);
-    if (!isDarkModeSelected) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [isDarkModeSelected]);
 
   const handleRouteToCarrer = () => {
     if (disabledButton !== "career") {
@@ -56,7 +40,7 @@ export const Navbar = ({
   };
 
   return (
-    <nav className="w-full h-14 border-b-4 border-black flex justify-between dark:border-gold bg-cream text-black dark:bg-royal dark:text-gold">
+    <nav className="w-full h-14 border-b-4 border-black flex justify-between dark:border-gold bg-amber-100 text-black dark:bg-royal dark:text-gold">
       <div className="md:hidden flex items-center justify-center mx-4">
         {isMobileMenuOpen ? (
           <ExitIcon onClick={handleOpenMobileMenu} />
@@ -64,23 +48,40 @@ export const Navbar = ({
           <MenuIcon onClick={handleOpenMobileMenu} />
         )}
       </div>
-      <div className="md:flex md:items-center">
+      <div className="flex items-center">
         <NavLogo />
-        <NavItem name={t("projects")} />
+        <NavItem onClick={onClickProjects} name={t("projects")} />
         <NavItem onClick={handleRouteToCarrer} name={t("timeline")} />
         <NavItem name={t("contacts")} />
       </div>
-      <div className="items-center flex">
-        <button className="mr-10 hidden md:flex" onClick={handleToggleDarkMode}>
-          {isDarkModeSelected ? (
+      <div className="items-center w-16 md:w-auto flex">
+        <button className="mr-4 hidden md:flex" onClick={handleToggleDarkMode}>
+          {isDarkModeOn ? (
             <SunIcon color={"#C4B274"} />
           ) : (
             <MoonIcon color={"black"} />
           )}
         </button>
-        <p className="mr-10 hidden md:flex" onClick={handleChangeLanguage}>
-          eng / pt-br
-        </p>
+        <div className="mr-10 hidden md:flex md:gap-2">
+          <UKFlagIcon
+            style={{
+              width: 30,
+              height: 30,
+              filter: currentLanguage === "en" ? "none" : "grayscale(100%)",
+              cursor: "pointer",
+            }}
+            onClick={() => handleChangeLanguage("en")}
+          />
+          <BrazilFlagIcon
+            style={{
+              width: 30,
+              height: 30,
+              filter: currentLanguage === "pt" ? "none" : "grayscale(100%)",
+              cursor: "pointer",
+            }}
+            onClick={() => handleChangeLanguage("pt")}
+          />
+        </div>
       </div>
     </nav>
   );

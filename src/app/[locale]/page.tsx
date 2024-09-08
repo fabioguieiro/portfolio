@@ -1,27 +1,21 @@
 "use client";
 import { Banner, Navbar } from "@/components";
 import { Footer } from "@/components/Footer";
-import { NavItem } from "@/components/Navbar/NavItem";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
-import { useCallback, useState } from "react";
-import { MoonIcon } from "../../../public/icons/MoonIcon";
-import { SunIcon } from "../../../public/icons/SunIcon";
+import { useCallback, useRef, useState } from "react";
 import { Work } from "@/components/Work";
 import { DownloadCVButton } from "@/components/DownloadCVButton";
+import { SideMenu } from "@/components/SideMenu";
 
 export default function Home() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isDarkModeSelected, setIsDarkModeSelected] = useState<Boolean>(true);
-
-  const router = useRouter();
-  const t = useTranslations("HomePage");
-  const locale = useLocale();
   const paths = usePathname().split("/");
+  const projectsRef = useRef(null);
+  const router = useRouter();
 
-  const handleRouteToCarrer = () => {
-    router.push(`${locale}/career`);
-  };
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDarkModeSelected, setIsDarkModeSelected] = useState<Boolean>(false);
+  const [currentLanguage, setCurrentLanguage] = useState<string>(paths[1]);
 
   const handleToggleDarkMode = useCallback(() => {
     setIsDarkModeSelected((prev) => !prev);
@@ -32,17 +26,35 @@ export default function Home() {
     }
   }, [isDarkModeSelected]);
 
-  const handleChangeLanguage = () => {
+  const handleChangeLanguage = (language: "en" | "pt") => {
     if (paths.length > 2) {
-      console.log("paths > 2", paths);
-      if (paths[1] === "en") {
+      if (language === "pt") {
         router.replace(`/pt/${paths.slice(2).join("/")}`);
-      } else if (paths[1] === "pt") {
+        setCurrentLanguage("pt");
+      } else if (language === "en") {
         router.replace(`/en/${paths.slice(2).join("/")}`);
+        setCurrentLanguage("en");
       }
     } else {
-      locale === "en" ? router.replace("/pt") : router.replace("/en");
+      if (language === "pt") {
+        router.replace("/pt");
+        setCurrentLanguage("pt");
+      } else if (language === "en") {
+        router.replace("/en");
+        setCurrentLanguage("en");
+      }
     }
+  };
+
+  const handleScrollToProjects = () => {
+    if (isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
+    }
+    projectsRef.current &&
+      //@ts-ignore
+      projectsRef.current?.scrollIntoView({
+        behavior: "smooth",
+      });
   };
 
   return (
@@ -50,44 +62,30 @@ export default function Home() {
       <Navbar
         isMobileMenuOpen={isMobileMenuOpen}
         setIsMobileMenuOpen={setIsMobileMenuOpen}
+        onClickProjects={handleScrollToProjects}
+        handleChangeLanguage={handleChangeLanguage}
+        currentLanguage={currentLanguage}
+        isDarkModeOn={!!isDarkModeSelected}
+        handleToggleDarkMode={handleToggleDarkMode}
       />
-      {isMobileMenuOpen && (
-        <div className="absolute w-3/4 bg-cream dark:bg-royal h-full md:hidden ">
-          <div className="flex flex-col items-center h-full py-12">
-            <button className="w-full h-14 px-8 text-xl border-r-4 font-primary border-black hover:underline dark:border-gold dark:text-gold md:flex md:h-full md:items-center">
-              {t("projects")}
-            </button>
-
-            <button
-              onClick={handleRouteToCarrer}
-              className="w-full h-14 px-8 text-xl border-r-4 font-primary border-black hover:underline dark:border-gold dark:text-gold md:flex md:h-full md:items-center"
-            >
-              {t("timeline")}
-            </button>
-
-            <button className="w-full h-14 px-8 text-xl border-r-4 font-primary border-black hover:underline dark:border-gold dark:text-gold md:flex md:h-full md:items-center">
-              {t("contacts")}
-            </button>
-            <div className="flex flex-col items-center">
-              <button className="mt-10 flex" onClick={handleToggleDarkMode}>
-                {isDarkModeSelected ? (
-                  <SunIcon color={"#C4B274"} />
-                ) : (
-                  <MoonIcon color={"black"} />
-                )}
-              </button>
-              <p
-                className="mt-10 flex dark:text-gold"
-                onClick={handleChangeLanguage}
-              >
-                eng / pt-br
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
+      <div
+        className={`fixed -left-[100%] h-full w-full ease-out duration-500 ${
+          isMobileMenuOpen ? "translate-x-full" : "translate-x-0"
+        }`}
+      >
+        <SideMenu
+          handleCloseMenu={() => setIsMobileMenuOpen(false)}
+          currentLanguage={currentLanguage}
+          handleChangeLanguage={handleChangeLanguage}
+          isDarkModeOn={!!isDarkModeSelected}
+          handleProjectClick={handleScrollToProjects}
+          handleToggleDarkMode={handleToggleDarkMode}
+        />
+      </div>
       <Banner />
-      <Work />
+      <div ref={projectsRef}>
+        <Work />
+      </div>
       <Footer />
       <DownloadCVButton />
     </main>
