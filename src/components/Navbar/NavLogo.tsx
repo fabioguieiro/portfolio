@@ -8,7 +8,7 @@ export const NavLogo = () => {
   return (
     <div
       onClick={handleClick}
-      className="cursor-pointer h-full w-16 text-4xl border-r-2 bg-black text-white border-white flex justify-center items-center font-secondary hover:underline"
+      className="cursor-pointer h-full w-16 text-4xl md:border-r-2 bg-black text-white md:border-white flex justify-center items-center font-secondary hover:underline"
     >
       FG
     </div>
