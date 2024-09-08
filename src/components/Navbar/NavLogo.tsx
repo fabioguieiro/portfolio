@@ -1,6 +1,15 @@
+import { useRouter } from "next/navigation";
+
 export const NavLogo = () => {
+  const router = useRouter();
+  const handleClick = () => {
+    router.replace(`/`);
+  };
   return (
-    <div className="h-full w-16 text-4xl border-r-4 bg-black text-cream border-black flex justify-center items-center font-secondary hover:underline">
+    <div
+      onClick={handleClick}
+      className="cursor-pointer h-full w-16 text-4xl border-r-2 bg-black text-white border-white flex justify-center items-center font-secondary hover:underline"
+    >
       FG
     </div>
   );

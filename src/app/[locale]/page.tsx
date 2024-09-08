@@ -68,15 +68,20 @@ export default function Home() {
         isDarkModeOn={!!isDarkModeSelected}
         handleToggleDarkMode={handleToggleDarkMode}
       />
-      {isMobileMenuOpen && (
+      <div
+        className={`fixed -left-[100%] h-full w-full ease-out duration-300 ${
+          isMobileMenuOpen ? "translate-x-full" : "translate-x-0"
+        }`}
+      >
         <SideMenu
+          handleCloseMenu={() => setIsMobileMenuOpen(false)}
           currentLanguage={currentLanguage}
           handleChangeLanguage={handleChangeLanguage}
           isDarkModeOn={!!isDarkModeSelected}
           handleProjectClick={handleScrollToProjects}
           handleToggleDarkMode={handleToggleDarkMode}
         />
-      )}
+      </div>
       <Banner />
       <div ref={projectsRef}>
         <Work />

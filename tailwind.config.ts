@@ -25,7 +25,7 @@ const config: Config = {
       fontFamily: {
         hand: ["Caveat", "cursive"],
         primary: ["Josefin Sans", "sans-serif"],
-        secondary: ["Spicy Rice", "serif"],
+        secondary: ["Lilita One", "serif"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

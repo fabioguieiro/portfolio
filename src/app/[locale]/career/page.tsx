@@ -16,7 +16,7 @@ const Career = () => {
   const paths = usePathname().split("/");
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isDarkModeSelected, setIsDarkModeSelected] = useState<Boolean>(true);
+  const [isDarkModeSelected, setIsDarkModeSelected] = useState<Boolean>(false);
   const [currentLanguage, setCurrentLanguage] = useState<string>(paths[1]);
 
   const handleRouteToHome = () => {
@@ -64,15 +64,20 @@ const Career = () => {
         handleToggleDarkMode={handleToggleDarkMode}
         isDarkModeOn={!!isDarkModeSelected}
       />
-      {isMobileMenuOpen && (
+      <div
+        className={`fixed z-40 -left-[100%] h-full w-full ease-out duration-300 ${
+          isMobileMenuOpen ? "translate-x-full" : "translate-x-0"
+        }`}
+      >
         <SideMenu
+          handleCloseMenu={() => setIsMobileMenuOpen(false)}
           currentLanguage={currentLanguage}
           handleChangeLanguage={handleChangeLanguage}
           isDarkModeOn={!!isDarkModeSelected}
           handleProjectClick={handleRouteToHome}
           handleToggleDarkMode={handleToggleDarkMode}
         />
-      )}{" "}
+      </div>
       <div className="w-full overflow-x-scroll">
         <Timeline />
       </div>
