@@ -52,7 +52,7 @@ export const Timeline = () => {
   };
   return (
     <div className="flex-col h-full w-full pb-6 bg-amber-100 text-black dark:bg-royal dark:text-gold flex items-center">
-      <h1 className="self-center font-secondary text-3xl md:text-6xl ml-4 text-tomato my-8">
+      <h1 className="self-center font-secondary text-3xl md:text-6xl text-tomato my-8">
         My professional timeline
       </h1>
       <div className="w-full px-4 justify-center items-center flex md:mb-10">
