@@ -14,7 +14,7 @@ export const Banner = () => {
       className="w-full px-4 pb-4 md:pb-0 h-auto md:h-full bg-indigo-600 flex flex-col md:flex-row items-center justify-center md:justify-center border-b-4 border-black dark:border-gold dark:bg-royal  "
     >
       <Avatar />
-      <div className="w-full mt-4 md:mt-0 md:w-2/5 md:ml-10 bg-white p-12  rounded-b-full rounded-r-full md:rounded-b-none md:rounded-r-full md:rounded-t-full ">
+      <div className="w-full md:h-auto h-42 mt-4 md:mt-0 md:w-2/5 md:ml-10 bg-white p-6 md:p-8 rounded-b-full rounded-r-full md:rounded-b-none md:rounded-r-full md:rounded-t-full ">
         <h1 className="font-hand text-center md:text-left  text-3xl text-black mb-4">
           {t("bannerHeadline")}
         </h1>
