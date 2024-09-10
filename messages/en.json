@@ -7,5 +7,51 @@
     "bannerHeadline": "Hello, I'm Fabio Guieiro",
     "bannerDescription": "Front-end developer passionate about creating stunning, user-centered interfaces. I transform complex requirements into elegant and functional designs.",
     "footer": "made with 💜 by Fabio Guieiro ©"
+  },
+  "Career": {
+    "pageTitle": "My professional timeline",
+    "remote": "Remote",
+    "technologies": "Technologies",
+    "achievements": "Achievements",
+
+    "versaPeriod": "jun 2019 - sep 2019",
+    "versaJobTitle": "Fullstack Intern",
+    "versaAchievement1": "Contributed to the translation of the code from FoxPro to ASP.NET",
+    "versaAchievement2": "The new project improved significantly the performance of the application",
+
+    "teknisaPeriod": "Sep 2019 - Aug 2020",
+    "teknisaJobTitle": "Junior Frontend Developer",
+    "teknisaAchievement1": "Developed a user-friendly interface for an AI project.",
+    "teknisaAchievement2": "The project was implemented in a big fast-food chain.",
+
+    "forumPeriod": "Sep 2020 - Feb 2021",
+    "forumJobTitle": "Junior Frontend Developer",
+    "forumAchievement1": "Release of a B2C online store, diversifying the company's products",
+    "forumAchievement2": "Through my project, the company profit increased 23%",
+
+    "queimaPeriod": "Mar 2021 - May 2022",
+    "queimaJobTitle": "Mid-level Frontend Developer",
+    "queimaAchievement1": "Release of the new smartTV application",
+    "queimaAchievement2": "The project achieved a 20% increase in the number of users",
+    "queimaAchievement3": "The project achieved a 15% increase in number of devices supported",
+    "queimaAchievement4": "significantly redution of the deploy time.",
+
+    "interPeriod": "May 2022 - Apr 2023",
+    "interJobTitle": "Mid-level Frontend Developer",
+    "interAchievement1": "Contributed on the internal design system release",
+    "interAchievement2": "The business account onboarding app, developed by me increased the number of corporate accounts by 100%",
+    "interAchievement3": "54% reduction in the number of support tickets related to corporate account opening and registration updates",
+
+    "btixPeriod": "Apr 2023 - Mar 2024",
+    "btixJobTitle": "Tech Lead / Senior Fullstack developer",
+    "btixAchievement1": "Delivery of the initial production versions of the apps",
+    "btixAchievement2": "Improved team synergy",
+    "btixAchievement3": "implementation of methodologies and practices that contribute to the quality of deliveries, such as Git Flow, for example.",
+
+    "casaPeriod": "Jan 2024 - Current",
+    "casaJobTitle": "Senior Frontend Developer",
+    "casaAchievement1": "implemented the project from scratch",
+    "casaAchievement2": "Launched the first smart TV app for the company",
+    "casaResponsability1": "Software Development"
   }
 }

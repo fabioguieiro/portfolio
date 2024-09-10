@@ -19,8 +19,10 @@ import { useState } from "react";
 import { companyDescriptions } from "./companyDescriptions";
 import { Card } from "../Card";
 import { TechBadge } from "../TechBadge";
+import { useTranslations } from "next-intl";
 
 export const Timeline = () => {
+  const t = useTranslations("Career");
   const [active, setActive] = useState<
     | "Versa"
     | "Teknisa"
@@ -51,11 +53,11 @@ export const Timeline = () => {
     }
   };
   return (
-    <div className="flex-col h-full w-full pb-6 bg-amber-100 text-black dark:bg-royal dark:text-gold flex items-center">
+    <div className="flex-col h-full w-full bg-amber-100 text-black dark:bg-royal dark:text-gold flex items-center pb-12">
       <h1 className="self-center font-secondary text-3xl md:text-6xl text-tomato my-8">
-        My professional timeline
+        {t("pageTitle")}
       </h1>
-      <div className="w-full px-4 justify-center items-center flex md:mb-10">
+      <div className="w-full px-4 justify-center items-center flex ">
         <Versa
           onClick={() => setActive("Versa")}
           className={` rounded-full border-4 cursor-pointer border-black dark:border-gold ${
@@ -122,18 +124,18 @@ export const Timeline = () => {
           <div className="flex flex-col">
             <Card
               imageOnRight
-              title={companyDescriptions[active].jobTitle}
+              title={companyDescriptions()[active].jobTitle}
               image={getIllustration()}
             >
-              <p>{companyDescriptions[active].company}</p>
-              <p>{companyDescriptions[active].period}</p>
+              <p>{companyDescriptions()[active].company}</p>
+              <p>{companyDescriptions()[active].period}</p>
             </Card>
             <Card
-              title="Achievements"
+              title={t("achievements")}
               image={<Trophy width={150} height={150} />}
             >
               <ul>
-                {companyDescriptions[active].achievements.map(
+                {companyDescriptions()[active].achievements.map(
                   (achievement: string) => (
                     <li
                       className=" bg-turquoise mb-2 rounded-full flex items-center justify-start  py-1 px-2"
@@ -157,9 +159,9 @@ export const Timeline = () => {
               </ul>
             </Card>
           </div>
-          <Card title="Technologies" image={null} imageOnRight>
+          <Card title={t("technologies")} image={null} imageOnRight>
             <div className="grid grid-cols-3 ml-3 md:ml-0 md:grid-cols-4 gap-4">
-              {companyDescriptions[active].techStack.map((tech: string) => (
+              {companyDescriptions()[active].techStack.map((tech: string) => (
                 <TechBadge key={tech} name={tech} />
               ))}
             </div>
