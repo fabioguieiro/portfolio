@@ -23,6 +23,7 @@ const config: Config = {
         brownie: "#9C5D38",
       },
       fontFamily: {
+        bebas: ["Bebas Neue", "sans-serif"],
         hand: ["Caveat", "cursive"],
         primary: ["Josefin Sans", "sans-serif"],
         secondary: ["Lilita One", "serif"],
