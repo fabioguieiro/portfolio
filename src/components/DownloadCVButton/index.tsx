@@ -14,7 +14,7 @@ export const DownloadCVButton = () => {
   return (
     <button
       onClick={handleClick}
-      className="fixed bottom-12 right-8 shadow-2xl rounded-md w-20 h-12 md:h-16 md:w-40 gap-2 bg-tomato border-b-4 border-r-4 border border-black flex items-center justify-center active:border hover:bg-orange-600 hover:underline hover:underline-offset-2"
+      className="fixed z-50 bottom-12 right-8 shadow-2xl rounded-md w-20 h-12 md:h-16 md:w-40 gap-2 bg-tomato border-b-4 border-r-4 border border-black flex items-center justify-center active:border hover:bg-orange-600 hover:underline hover:underline-offset-2"
     >
       <DownloadIcon size={30} color="black" />
       <p className="font-primary text-black font-bold text- md:text-base hidden md:block">

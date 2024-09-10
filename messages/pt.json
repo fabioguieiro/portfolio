@@ -6,5 +6,50 @@
     "bannerHeadline": "Olá, meu nome é Fabio Guieiro",
     "bannerDescription": "Desenvolvedor front-end apaixonado por criar interfaces deslumbrantes e centradas no usuário. Transformo requisitos complexos em designs elegantes e funcionais.",
     "footer": "Feito com 💜 por Fabio Guieiro ©"
+  },
+  "Career": {
+    "pageTitle": "Trajetória profissional",
+    "remote": "Remoto",
+    "technologies": "Tecnologias",
+    "achievements": "Conquistas",
+
+    "versaPeriod": "Jun 2019 - Set 2019",
+    "versaJobTitle": "Estagiário Fullstack",
+    "versaAchievement1": "Contribuí com a tradução da aplicação da linguagem FoxPro para o ASP.NET",
+    "versaAchievement2": "O novo projeto aumentou significativamente a performance através das melhorias implementadas",
+
+    "teknisaPeriod": "Set 2019 - Ago 2020",
+    "teknisaJobTitle": "Desenvolvedor Frontend Júnior",
+    "teknisaAchievement1": "Desenvolvi uma interface amigável para um projeto de inteligência artificial.",
+    "teknisaAchievement2": "O projeto desenvolvido foi negociado junto a uma grande rede de fast-food.",
+
+    "forumPeriod": "Set 2020 - Fev 2021",
+    "forumJobTitle": "Desenvolvedor Frontend Júnior",
+    "forumAchievement1": "Lançamento de um sistema para vendas B2C, diversificando a oferta de produtros da empresa",
+    "forumAchievement2": "Através deste projeto, a empresa conseguiu atingir um aumento de receita de 23% no primeiro ano",
+
+    "queimaPeriod": "Mar 2021 - Mai 2022",
+    "queimaJobTitle": "Desenvolvedor Frontend Pleno",
+    "queimaAchievement1": "Lançamento do novo aplicativo para Smart TV's",
+    "queimaAchievement2": "O projeto alcançou um aumento de 20% no número de usuários",
+    "queimaAchievement3": "O projeto alcançou um aumento de 15% no número de dispositivos suportados",
+    "queimaAchievement4": "Diminução significativa no tempo de deploy.",
+
+    "interPeriod": "Mai 2022 - Abr 2023",
+    "interJobTitle": "Desenvolvedor Frontend Pleno",
+    "interAchievement1": "Contribuí com o sistema de design system interno",
+    "interAchievement2": "O sistema para abertura de contas PJ, desenvolvido por mim, aumentou o número de abertura de contas empresariais em 100%",
+    "interAchievement3": "Redução de 54% no número de tickets de suporte relacionados a abertura de contas e atualização cadastral",
+
+    "btixPeriod": "Abr 2023 - Mar 2024",
+    "btixJobTitle": "Tech Lead / Desenvolvedor Frontend Sênior",
+    "btixAchievement1": "Lançamento do projeto inicial dos aplicativos em produção",
+    "btixAchievement2": "Aumento da sinergia da equipe de desenvolvimento",
+    "btixAchievement3": "Implementação de metodologias e práticas, como o Git Flow, que contribuiram para o aumento da qualidade das entregas.",
+
+    "casaPeriod": "Jan 2024 - o momento",
+    "casaJobTitle": "Desenvolvedor Frontend Sênior",
+    "casaAchievement1": "Implementei o projeto desde o princípio, tomando decisões de Arquitetura, design e código",
+    "casaAchievement2": "Lancei o primeiro aplicativo de smart TV's da empresa"
   }
 }

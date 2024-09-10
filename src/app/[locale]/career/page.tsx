@@ -8,6 +8,7 @@ import { SunIcon } from "../../../../public/icons/SunIcon";
 import { MoonIcon } from "../../../../public/icons/MoonIcon";
 import { DownloadCVButton } from "@/components/DownloadCVButton";
 import { SideMenu } from "@/components/SideMenu";
+import { Footer } from "@/components/Footer";
 
 const Career = () => {
   const t = useTranslations("HomePage");
@@ -78,9 +79,10 @@ const Career = () => {
           handleToggleDarkMode={handleToggleDarkMode}
         />
       </div>
-      <div className="w-full overflow-x-scroll">
+      <div className="w-full">
         <Timeline />
       </div>
+      <Footer />
       <DownloadCVButton />
     </main>
   );
