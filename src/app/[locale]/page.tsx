@@ -68,7 +68,6 @@ export default function Home() {
         isDarkModeOn={!!isDarkModeSelected}
         handleToggleDarkMode={handleToggleDarkMode}
       />
-
       <div
         className={`fixed z-40 -left-[100%] h-full w-full ease-out duration-300 ${
           isMobileMenuOpen ? "translate-x-full" : "translate-x-0"
