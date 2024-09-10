@@ -11,7 +11,7 @@ export const Work = () => {
         Projects
       </h1>
       <div className="w-11/12 h-auto grid md:grid-cols-3 gap-x-4 my-4">
-        <div className="mt-4 w-full h-auto ">
+        <div className="mt-4 w-full h-48 md:h-60 ">
           <a
             className="relative"
             target="_blank"
@@ -26,7 +26,7 @@ export const Work = () => {
           </a>
         </div>
 
-        <div className="mt-4 w-full h-auto ">
+        <div className="mt-4 w-full h-48 md:h-60 ">
           <a className="relative" target="_blank" href={"https://btix.app/"}>
             <AppBtix className="grayscale hover:grayscale-0" />
             <p className="absolute  z-0 top-6 right-2 text-right text-amber-100 font-bebas w-2/5 text-5xl md:text-7xl md:w-1/2 font-bold">
@@ -35,7 +35,7 @@ export const Work = () => {
           </a>
         </div>
 
-        <div className="mt-4 w-full h-auto ">
+        <div className="mt-4 w-full h-48 md:h-60 ">
           <a
             className="relative"
             target="_blank"
@@ -47,8 +47,7 @@ export const Work = () => {
             </p>
           </a>
         </div>
-
-        <div className="mt-4 w-full h-auto ">
+        <div className="mt-4 w-full h-48 md:h-60 ">
           <a
             className="relative"
             target="_blank"
@@ -63,7 +62,7 @@ export const Work = () => {
           </a>
         </div>
 
-        <div className="mt-4 w-full h-auto ">
+        <div className="mt-4 w-full h-48 md:h-60 ">
           <a
             className="relative"
             target="_blank"
