@@ -6,7 +6,16 @@ import { AppForum } from "../../../public/images/AppForum";
 
 export const Work = () => {
   return (
-    <div className="w-full flex flex-col items-center justify-center bg-amber-100">
+    <div className="w-full flex flex-col items-center justify-center bg-amber-100 overflow-hidden relative">
+      <div
+        style={{
+          backgroundImage: 'url("./rainbow-bg.png")',
+          backgroundSize: "100% 100%",
+          backgroundPosition: "bottom 0px left 0px",
+          backgroundRepeat: "no-repeat",
+        }}
+        className="w-[300%] h-[37%] opacity-45 absolute rotate-[322deg] md:w-full md:h-full md:rotate-0"
+      ></div>
       <h1 className="font-secondary text-8xl self-start ml-4 mt-4 text-tomato md:ml-14 2xl:ml-48">
         Projects
       </h1>
