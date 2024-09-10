@@ -12,7 +12,7 @@ export function AppForum({ ...props }) {
         height={1000}
       />
       <div className="absolute top-6 right-2 w-1/2 h-1/2 md:h-full  ">
-        <p className="text-right text-amber-100 font-bebas font-bold text-5xl md:text-7xl">
+        <p className="text-right text-amber-100 font-bebas font-bold text-5xl md:text-7xl 2xl:text-8xl">
           Forum Digital
         </p>
       </div>

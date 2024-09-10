@@ -7,11 +7,11 @@ import { AppForum } from "../../../public/images/AppForum";
 export const Work = () => {
   return (
     <div className="w-full flex flex-col items-center justify-center bg-amber-100">
-      <h1 className="font-secondary text-8xl self-start ml-4 mt-4 text-tomato md:ml-14">
+      <h1 className="font-secondary text-8xl self-start ml-4 mt-4 text-tomato md:ml-14 2xl:ml-48">
         Projects
       </h1>
-      <div className="w-11/12 h-auto grid md:grid-cols-3 gap-x-4 my-4">
-        <div className="mt-4 w-full h-48 md:h-60 ">
+      <div className="w-11/12 h-auto grid md:grid-cols-3 gap-x-4 my-4 2xl:px-16 2xl:h-[650px]">
+        <div className="my-6 md:my-2 2xl:my-0 w-full h-48 md:h-60 2xl:mx-16  ">
           <a
             target="_blank"
             href={
@@ -22,18 +22,18 @@ export const Work = () => {
           </a>
         </div>
 
-        <div className="mt-4 w-full h-48 md:h-60 ">
+        <div className="my-6 md:my-2 2xl:my-0 w-full h-48 md:h-60 2xl:mx-16   ">
           <a target="_blank" href={"https://btix.app/"}>
             <AppBtix className="grayscale hover:grayscale-0" />
           </a>
         </div>
 
-        <div className="mt-4 w-full h-48 md:h-60 ">
+        <div className="my-6 md:my-2 2xl:my-0 w-full h-48 md:h-60 2xl:mx-16  ">
           <a target="_blank" href={"https://contadigital.inter.co/"}>
             <AppInter className="grayscale hover:grayscale-0" />
           </a>
         </div>
-        <div className="mt-4 w-full h-48 md:h-60 ">
+        <div className="my-6 md:my-2 2xl:my-0 w-full h-48 md:h-60 2xl:mx-16  ">
           <a
             target="_blank"
             href={
@@ -44,7 +44,7 @@ export const Work = () => {
           </a>
         </div>
 
-        <div className="mt-4 w-full h-48 md:h-60 ">
+        <div className="my-6 md:my-2 2xl:my-0 w-full h-48 md:h-60 2xl:mx-16  ">
           <a target="_blank" href={"https://digital.editoraforum.com.br/"}>
             <AppForum className="grayscale hover:grayscale-0" />
           </a>
