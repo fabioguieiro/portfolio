@@ -8,7 +8,7 @@ export const Work = () => {
   return (
     <div className="w-full flex flex-col items-center justify-center bg-amber-100">
       <h1 className="font-secondary text-8xl self-start ml-4 mt-4 text-tomato md:ml-14">
-        Projects
+        ProjectsX
       </h1>
       <div className="w-11/12 h-auto grid md:grid-cols-3 gap-x-4 my-4">
         <div className="mt-4 w-full h-48 md:h-60 ">
