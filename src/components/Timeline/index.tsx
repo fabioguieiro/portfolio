@@ -53,7 +53,7 @@ export const Timeline = () => {
     }
   };
   return (
-    <div className="flex-col h-full w-full bg-amber-100 text-black dark:bg-royal dark:text-gold flex items-center pb-12">
+    <div className="flex-col  h-full w-full bg-amber-100 text-black dark:bg-royal dark:text-gold flex items-center pb-12">
       <h1 className="self-center font-secondary text-3xl md:text-6xl text-tomato my-8">
         {t("pageTitle")}
       </h1>
