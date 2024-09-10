@@ -6,7 +6,7 @@ import { AppForum } from "../../../public/images/AppForum";
 
 export const Work = () => {
   return (
-    <div className="w-full flex flex-col items-center justify-center bg-amber-100 overflow-hidden relative">
+    <div className="w-full flex flex-col items-center justify-center bg-amber-100 overflow-hidden relative z-10">
       <div
         style={{
           backgroundImage: 'url("./rainbow-bg.png")',
