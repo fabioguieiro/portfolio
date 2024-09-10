@@ -3,6 +3,7 @@ import Image from "next/image";
 export function AppForum({ ...props }) {
   return (
     <Image
+      style={{ borderRadius: 15 }}
       {...props}
       src={`/ForumApp.png`}
       alt={"logo da Versa"}
