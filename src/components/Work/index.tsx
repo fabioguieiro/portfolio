@@ -20,7 +20,7 @@ export const Work = () => {
             }
           >
             <AppCasa className="grayscale hover:grayscale-0" />
-            <p className="absolute top-6 right-2 text-right text-amber-100 font-bebas w-2/5 text-5xl md:text-7xl md:w-1/2 font-bold">
+            <p className="absolute  z-0 top-6 right-2 text-right text-amber-100 font-bebas w-2/5 text-5xl md:text-7xl md:w-1/2 font-bold">
               Casa do Saber +
             </p>
           </a>
@@ -29,7 +29,7 @@ export const Work = () => {
         <div className="mt-4 w-full h-auto ">
           <a className="relative" target="_blank" href={"https://btix.app/"}>
             <AppBtix className="grayscale hover:grayscale-0" />
-            <p className="absolute top-6 right-2 text-right text-amber-100 font-bebas w-2/5 text-5xl md:text-7xl md:w-1/2 font-bold">
+            <p className="absolute  z-0 top-6 right-2 text-right text-amber-100 font-bebas w-2/5 text-5xl md:text-7xl md:w-1/2 font-bold">
               btix.app
             </p>
           </a>
@@ -42,7 +42,7 @@ export const Work = () => {
             href={"https://contadigital.inter.co/"}
           >
             <AppInter className="grayscale hover:grayscale-0" />
-            <p className="absolute top-6 right-2 text-right text-amber-100 font-bebas w-2/5 text-5xl md:text-7xl md:w-1/2 font-bold">
+            <p className="absolute  z-0 top-6 right-2 text-right text-amber-100 font-bebas w-2/5 text-5xl md:text-7xl md:w-1/2 font-bold">
               Inter Empresas
             </p>
           </a>
@@ -57,7 +57,7 @@ export const Work = () => {
             }
           >
             <AppQueima className="grayscale hover:grayscale-0" />
-            <p className="absolute top-6 right-2 text-right text-amber-100 font-bebas w-2/5 text-5xl md:text-7xl md:w-1/2 font-bold">
+            <p className="absolute  z-0 top-6 right-2 text-right text-amber-100 font-bebas w-2/5 text-5xl md:text-7xl md:w-1/2 font-bold">
               Queima Diária
             </p>
           </a>
@@ -70,7 +70,7 @@ export const Work = () => {
             href={"https://digital.editoraforum.com.br/"}
           >
             <AppForum className="grayscale hover:grayscale-0" />
-            <p className="absolute top-6 right-2 text-right text-amber-100 font-bebas w-2/5 text-5xl md:text-7xl md:w-1/2 font-bold">
+            <p className="absolute z-0 top-6 right-2 text-right text-amber-100 font-bebas w-2/5 text-5xl md:text-7xl md:w-1/2 font-bold">
               Forum Digital
             </p>
           </a>
