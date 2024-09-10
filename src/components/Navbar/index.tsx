@@ -40,7 +40,7 @@ export const Navbar = ({
   };
 
   return (
-    <nav className="w-full h-14 border-b-4 border-black flex justify-between dark:border-gold bg-amber-100 text-black dark:bg-royal dark:text-gold">
+    <nav className="sticky top-0 z-50 w-full h-14 border-b-4 border-black flex justify-between dark:border-gold bg-amber-100 text-black dark:bg-royal dark:text-gold">
       <div className="md:hidden flex items-center justify-center mx-4">
         {isMobileMenuOpen ? (
           <ExitIcon onClick={handleOpenMobileMenu} />

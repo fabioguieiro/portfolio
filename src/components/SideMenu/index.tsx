@@ -23,7 +23,7 @@ export const SideMenu = ({
   };
 
   return (
-    <div className={`absolute h-full w-full z-50  md:hidden flex `}>
+    <div className={`fixed h-full w-full z-40  md:hidden flex `}>
       <div className="w-3/5 bg-cream dark:bg-royal border-r-4 border-black">
         <div className="flex flex-col items-center h-full py-12">
           <button
