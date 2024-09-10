@@ -8,7 +8,7 @@ export const Work = () => {
   return (
     <div className="w-full flex flex-col items-center justify-center bg-amber-100">
       <h1 className="font-secondary text-8xl self-start ml-4 mt-4 text-tomato md:ml-14">
-        ProjectsX
+        ProjectsY
       </h1>
       <div className="w-11/12 h-auto grid md:grid-cols-3 gap-x-4 my-4">
         <div className="mt-4 w-full h-48 md:h-60 ">
@@ -43,17 +43,8 @@ export const Work = () => {
         </div>
 
         <div className="mt-4 w-full h-48 md:h-60 ">
-          <a
-            className="relative"
-            target="_blank"
-            href={"https://contadigital.inter.co/"}
-          >
+          <a target="_blank" href={"https://contadigital.inter.co/"}>
             <AppInter className="grayscale hover:grayscale-0" />
-            <div className="absolute top-6 right-2 w-1/2 h-1/2 md:w-1/2 ">
-              <p className="text-right text-amber-100 font-bebas font-bold text-5xl md:text-7xl">
-                Inter Empresas
-              </p>
-            </div>
           </a>
         </div>
         <div className="mt-4 w-full h-48 md:h-60 ">
