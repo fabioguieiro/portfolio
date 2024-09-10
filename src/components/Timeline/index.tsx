@@ -16,7 +16,7 @@ import { TV } from "../../../public/images/TV";
 import { Trophy } from "../../../public/images/Trophy";
 import { DashedConnector } from "../DashedConnector";
 import { useState } from "react";
-import { companyDescriptions } from "./companyDescriptions";
+import { CompanyDescriptions } from "./CompanyDescriptions";
 import { Card } from "../Card";
 import { TechBadge } from "../TechBadge";
 import { useTranslations } from "next-intl";
@@ -124,18 +124,18 @@ export const Timeline = () => {
           <div className="flex flex-col">
             <Card
               imageOnRight
-              title={companyDescriptions()[active].jobTitle}
+              title={CompanyDescriptions()[active].jobTitle}
               image={getIllustration()}
             >
-              <p>{companyDescriptions()[active].company}</p>
-              <p>{companyDescriptions()[active].period}</p>
+              <p>{CompanyDescriptions()[active].company}</p>
+              <p>{CompanyDescriptions()[active].period}</p>
             </Card>
             <Card
               title={t("achievements")}
               image={<Trophy width={150} height={150} />}
             >
               <ul>
-                {companyDescriptions()[active].achievements.map(
+                {CompanyDescriptions()[active].achievements.map(
                   (achievement: string) => (
                     <li
                       className=" bg-turquoise mb-2 rounded-full flex items-center justify-start  py-1 px-2"
@@ -161,7 +161,7 @@ export const Timeline = () => {
           </div>
           <Card title={t("technologies")} image={null} imageOnRight>
             <div className="grid grid-cols-3 ml-3 md:ml-0 md:grid-cols-4 gap-4">
-              {companyDescriptions()[active].techStack.map((tech: string) => (
+              {CompanyDescriptions()[active].techStack.map((tech: string) => (
                 <TechBadge key={tech} name={tech} />
               ))}
             </div>

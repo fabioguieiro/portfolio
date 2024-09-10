@@ -1,7 +1,7 @@
 "use client";
 import { useTranslations } from "next-intl";
 
-export const companyDescriptions = () => {
+export const CompanyDescriptions = () => {
   const t = useTranslations("Career");
 
   return {
