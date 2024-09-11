@@ -1,7 +1,7 @@
 "use client";
 import { useTranslations } from "next-intl";
 
-export const companyDescriptions = () => {
+export const useDescriptions = () => {
   const t = useTranslations("Career");
 
   return {
@@ -21,7 +21,6 @@ export const companyDescriptions = () => {
         "GIT",
       ],
       achievements: [t("versaAchievement1"), t("versaAchievement2")],
-      responsabilities: [t("versaResponsability1")],
     },
 
     Teknisa: {
