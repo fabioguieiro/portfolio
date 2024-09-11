@@ -16,13 +16,14 @@ import { TV } from "../../../public/images/TV";
 import { Trophy } from "../../../public/images/Trophy";
 import { DashedConnector } from "../DashedConnector";
 import { useState } from "react";
-import { CompanyDescriptions } from "./CompanyDescriptions.ts";
+import { useDescriptions } from "./useDescriptions.ts";
 import { Card } from "../Card";
 import { TechBadge } from "../TechBadge";
 import { useTranslations } from "next-intl";
 
 export const Timeline = () => {
   const t = useTranslations("Career");
+  const companyDetails = useDescriptions();
   const [active, setActive] = useState<
     | "Versa"
     | "Teknisa"
@@ -124,18 +125,18 @@ export const Timeline = () => {
           <div className="flex flex-col">
             <Card
               imageOnRight
-              title={CompanyDescriptions()[active].jobTitle}
+              title={companyDetails[active].jobTitle}
               image={getIllustration()}
             >
-              <p>{CompanyDescriptions()[active].company}</p>
-              <p>{CompanyDescriptions()[active].period}</p>
+              <p>{companyDetails[active].company}</p>
+              <p>{companyDetails[active].period}</p>
             </Card>
             <Card
               title={t("achievements")}
               image={<Trophy width={150} height={150} />}
             >
               <ul>
-                {CompanyDescriptions()[active].achievements.map(
+                {companyDetails[active].achievements.map(
                   (achievement: string) => (
                     <li
                       className=" bg-turquoise mb-2 rounded-full flex items-center justify-start  py-1 px-2"
@@ -161,7 +162,7 @@ export const Timeline = () => {
           </div>
           <Card title={t("technologies")} image={null} imageOnRight>
             <div className="grid grid-cols-3 ml-3 md:ml-0 md:grid-cols-4 gap-4">
-              {CompanyDescriptions()[active].techStack.map((tech: string) => (
+              {companyDetails[active].techStack.map((tech: string) => (
                 <TechBadge key={tech} name={tech} />
               ))}
             </div>
