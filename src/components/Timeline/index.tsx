@@ -16,7 +16,7 @@ import { TV } from "../../../public/images/TV";
 import { Trophy } from "../../../public/images/Trophy";
 import { DashedConnector } from "../DashedConnector";
 import { useState } from "react";
-import { CompanyDescriptions } from "./CompanyDescriptions";
+import { CompanyDescriptions } from "./CompanyDescriptions.ts";
 import { Card } from "../Card";
 import { TechBadge } from "../TechBadge";
 import { useTranslations } from "next-intl";
