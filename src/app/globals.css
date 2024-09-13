@@ -7,10 +7,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  width: 100vw;
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
