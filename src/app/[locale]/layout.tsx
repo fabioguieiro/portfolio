@@ -6,7 +6,7 @@ import {
   unstable_setRequestLocale,
 } from "next-intl/server";
 
-import { locales, THEME_STORAGE_KEY, TLocale } from "@/config";
+import { locales, SITE_URL, THEME_STORAGE_KEY, TLocale } from "@/config";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import "../globals.css";
 
@@ -31,15 +31,10 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-// Absolute base for Open Graph URLs. Vercel exposes the production domain
-// automatically; set NEXT_PUBLIC_SITE_URL to override or when hosting elsewhere.
+// Absolute base for canonical and Open Graph URLs. See SITE_URL in config.ts
+// for why this does not fall back to Vercel's project domain variable.
 function getMetadataBase() {
-  const url =
-    process.env.NEXT_PUBLIC_SITE_URL ||
-    (process.env.VERCEL_PROJECT_PRODUCTION_URL &&
-      `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`);
-
-  return url ? new URL(url) : undefined;
+  return new URL(process.env.NEXT_PUBLIC_SITE_URL || SITE_URL);
 }
 
 export async function generateMetadata({
