@@ -1,24 +1,26 @@
-import { AppCasa } from "../../../public/images/AppCasa";
-import { AppQueima } from "../../../public/images/AppQueima";
-import { AppBtix } from "../../../public/images/AppBtix";
-import { AppInter } from "../../../public/images/AppInter";
-import { AppForum } from "../../../public/images/AppForum";
 import { useTranslations } from "next-intl";
+import {
+  AppBtix,
+  AppCasa,
+  AppForum,
+  AppInter,
+  AppQueima,
+} from "@/components/images";
 
 export const Work = () => {
   const t = useTranslations("HomePage");
   return (
-    <div className="w-full flex flex-col items-center justify-center bg-amber-100 overflow-hidden relative z-10">
+    <div className="w-full flex flex-col items-center justify-center bg-ground text-ink overflow-hidden relative z-10">
       <div
         style={{
-          backgroundImage: 'url("./rainbow-bg.png")',
+          backgroundImage: 'url("/rainbow-bg.webp")',
           backgroundSize: "100% 100%",
           backgroundPosition: "bottom 0px left 0px",
           backgroundRepeat: "no-repeat",
         }}
-        className="w-[300%] h-[37%] opacity-45 absolute rotate-[322deg] md:w-full md:h-full md:rotate-0"
+        className="w-[300%] h-[37%] bg-wash absolute rotate-[322deg] md:w-full md:h-full md:rotate-0"
       ></div>
-      <h1 className="font-secondary text-8xl self-start ml-4 mt-4 text-tomato md:ml-14 2xl:ml-48">
+      <h1 className="font-secondary text-8xl self-start ml-4 mt-4 text-display md:ml-14 2xl:ml-48">
         {t("projects")}
       </h1>
       <div className="w-11/12 h-auto grid md:grid-cols-3 gap-x-4 my-4 2xl:px-16 2xl:h-[650px]">

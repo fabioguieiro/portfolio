@@ -7,8 +7,51 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * Two grounds, one palette.
+ *
+ * Grounds, surfaces and chrome swap between modes. The colored fields below
+ * hold the same value in both and always carry near-black ink -- that is where
+ * the retro pop lives, and keeping it fixed is what makes every pair provably
+ * legible. Channel triplets (not hex) so Tailwind's /opacity modifiers work.
+ *
+ * Every pair is verified by scripts/contrast.mjs -- run `node scripts/contrast.mjs`
+ * after changing any value here.
+ */
+@layer base {
+  :root {
+    --ground: 253 244 216; /* #FDF4D8 */
+    --surface: 255 251 240; /* #FFFBF0 */
+    --surface-alt: 244 240 226; /* #F4F0E2 */
+    --ink: 20 17 14; /* #14110E */
+    --ink-muted: 87 80 63; /* #57503F */
+    --outline: 20 17 14; /* #14110E */
+    --display: 194 56 13; /* #C2380D */
+
+    /* decorative wash behind the projects grid */
+    --wash-opacity: 0.45;
+  }
+
+  .dark {
+    --ground: 16 31 46; /* #101F2E */
+    --surface: 27 58 87; /* #1B3A57 */
+    --surface-alt: 36 72 106; /* #24486A */
+    --ink: 245 239 224; /* #F5EFE0 */
+    --ink-muted: 175 192 210; /* #AFC0D2 */
+    --outline: 196 178 116; /* #C4B274 */
+    --display: 255 138 92; /* #FF8A5C */
+
+    --wash-opacity: 0.22;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* the rainbow wash needs to sit back on the dark ground */
+  .bg-wash {
+    opacity: var(--wash-opacity);
   }
 }

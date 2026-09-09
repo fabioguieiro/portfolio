@@ -6,7 +6,7 @@ import {
   InstagramIcon,
   LinkedinIcon,
   WhatsappIcon,
-} from "../../../public/icons";
+} from "@/components/icons";
 
 export const Footer = () => {
   const t = useTranslations("HomePage");
@@ -32,18 +32,34 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="w-full h-12 md:h-14 bg-tomato flex items-center justify-between ">
+    <footer
+      id="contacts"
+      className="w-full h-12 md:h-14 bg-tomato text-cream border-t-4 border-fieldInk flex items-center justify-between "
+    >
       <div className="w-2/4 md:w-1/4 px-1 md:px-6">
-        <p className="text-cream font-primary text-xs md:text-sm">
-          {t("footer")}
-        </p>
+        <p className="font-primary text-xs md:text-sm">{t("footer")}</p>
       </div>
       <div className="w-1/4 flex gap-2 justify-end px-1 md:px-6">
-        <GithubIcon onClick={() => handleIconClick("github")} />
-        <EmailIcon onClick={() => handleIconClick("email")} />
-        <LinkedinIcon onClick={() => handleIconClick("linkedin")} />
-        <WhatsappIcon onClick={() => handleIconClick("whatsapp")} />
-        <InstagramIcon onClick={() => handleIconClick("instagram")} />
+        <GithubIcon
+          color="currentColor"
+          onClick={() => handleIconClick("github")}
+        />
+        <EmailIcon
+          color="currentColor"
+          onClick={() => handleIconClick("email")}
+        />
+        <LinkedinIcon
+          color="currentColor"
+          onClick={() => handleIconClick("linkedin")}
+        />
+        <WhatsappIcon
+          color="currentColor"
+          onClick={() => handleIconClick("whatsapp")}
+        />
+        <InstagramIcon
+          color="currentColor"
+          onClick={() => handleIconClick("instagram")}
+        />
       </div>
     </footer>
   );

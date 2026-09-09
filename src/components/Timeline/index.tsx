@@ -1,174 +1,161 @@
 "use client";
-import { Versa } from "../../../public/images/Versa";
-import { Teknisa } from "../../../public/images/Teknisa";
-import { Forum } from "../../../public/images/Forum";
-import { Queima } from "../../../public/images/Queima";
-import { Inter } from "../../../public/images/Inter";
-import { Btix } from "../../../public/images/Btix";
-import { Casa } from "../../../public/images/Casa";
-import { Computer } from "../../../public/images/Computer";
-import { Pizza } from "../../../public/images/Pizza";
-import { Book } from "../../../public/images/Book";
-import { Lifting } from "../../../public/images/Lifting";
-import { Money } from "../../../public/images/Money";
-import { Tickets } from "../../../public/images/Ticket";
-import { TV } from "../../../public/images/TV";
-import { Trophy } from "../../../public/images/Trophy";
-import { DashedConnector } from "../DashedConnector";
-import { useState } from "react";
-import { useDescriptions } from "./useDescriptions.ts";
-import { Card } from "../Card";
-import { TechBadge } from "../TechBadge";
 import { useTranslations } from "next-intl";
+import { ComponentType, Fragment, useEffect, useRef, useState } from "react";
+
+import {
+  Book,
+  Btix,
+  Casa,
+  Computer,
+  Forum,
+  GreatWolf,
+  Inter,
+  Lifting,
+  Money,
+  Pizza,
+  Queima,
+  Teknisa,
+  Tickets,
+  Trophy,
+  TV,
+  Venmo,
+} from "@/components/images";
+import { TSizedImageProps } from "@/components/images/types";
+
+import { Card } from "../Card";
+import { DashedConnector } from "../DashedConnector";
+import { TechBadge } from "../TechBadge";
+import { COMPANY_KEYS, TCompanyKey, useDescriptions } from "./useDescriptions";
+
+type TCompanyVisuals = {
+  Logo: ComponentType<TSizedImageProps>;
+  Illustration: ComponentType<TSizedImageProps>;
+  illustrationSize: number;
+};
+
+const VISUALS: Record<TCompanyKey, TCompanyVisuals> = {
+  Teknisa: { Logo: Teknisa, Illustration: Pizza, illustrationSize: 120 },
+  Forum: { Logo: Forum, Illustration: Book, illustrationSize: 130 },
+  Queima: { Logo: Queima, Illustration: Lifting, illustrationSize: 140 },
+  Inter: { Logo: Inter, Illustration: Money, illustrationSize: 140 },
+  Btix: { Logo: Btix, Illustration: Tickets, illustrationSize: 140 },
+  Casa: { Logo: Casa, Illustration: TV, illustrationSize: 140 },
+  Venmo: { Logo: Venmo, Illustration: Money, illustrationSize: 140 },
+  GreatWolf: {
+    Logo: GreatWolf,
+    Illustration: Computer,
+    illustrationSize: 150,
+  },
+};
+
+// The newest role is the one worth showing first.
+const DEFAULT_COMPANY: TCompanyKey = COMPANY_KEYS[COMPANY_KEYS.length - 1];
 
 export const Timeline = () => {
   const t = useTranslations("Career");
   const companyDetails = useDescriptions();
-  const [active, setActive] = useState<
-    | "Versa"
-    | "Teknisa"
-    | "Forum"
-    | "Queima"
-    | "Inter"
-    | "Btix"
-    | "Casa"
-    | undefined
-  >("Casa");
 
-  const getIllustration = () => {
-    switch (active) {
-      case "Versa":
-        return <Computer width={160} height={160} />;
-      case "Teknisa":
-        return <Pizza width={120} height={120} />;
-      case "Forum":
-        return <Book width={130} height={130} />;
-      case "Queima":
-        return <Lifting width={140} height={140} />;
-      case "Inter":
-        return <Money width={140} height={140} />;
-      case "Btix":
-        return <Tickets width={140} height={140} />;
-      case "Casa":
-        return <TV width={140} height={140} />;
-    }
-  };
+  const [active, setActive] = useState<TCompanyKey>(DEFAULT_COMPANY);
+
+  const trackRef = useRef<HTMLDivElement>(null);
+  const defaultLogoRef = useRef<HTMLDivElement>(null);
+
+  // With eight companies the track scrolls on narrow screens. Bring the
+  // preselected (most recent) role into view instead of leaving it off-screen.
+  useEffect(() => {
+    const track = trackRef.current;
+    const logo = defaultLogoRef.current;
+    if (!track || !logo) return;
+
+    track.scrollLeft =
+      logo.offsetLeft - (track.clientWidth - logo.clientWidth) / 2;
+  }, []);
+
+  const details = companyDetails[active];
+  const { Illustration, illustrationSize } = VISUALS[active];
+
   return (
-    <div className="flex-col  h-full w-full bg-amber-100 text-black dark:bg-royal dark:text-gold flex items-center pb-12">
-      <h1 className="self-center font-secondary text-3xl md:text-6xl text-tomato my-8">
+    <div className="flex-col h-full w-full bg-ground text-ink flex items-center pb-12">
+      <h1 className="self-center font-secondary text-3xl md:text-6xl text-display my-8">
         {t("pageTitle")}
       </h1>
-      <div className="w-full px-4 justify-center items-center flex ">
-        <Versa
-          onClick={() => setActive("Versa")}
-          className={` rounded-full border-4 cursor-pointer border-black dark:border-gold ${
-            active === "Versa" ? "md:w-32 w-14" : "md:w-24 w-10"
-          }  `}
-        />
 
-        <DashedConnector />
+      <div ref={trackRef} className="w-full overflow-x-auto px-4 pb-2">
+        {/* w-max + mx-auto centres the track while it fits and lets it scroll
+            from the left edge once it no longer does. */}
+        <div className="flex w-max mx-auto items-center">
+          {COMPANY_KEYS.map((key, index) => {
+            const { Logo } = VISUALS[key];
 
-        <Teknisa
-          onClick={() => setActive("Teknisa")}
-          className={`rounded-full border-4 cursor-pointer border-black dark:border-gold ${
-            active === "Teknisa" ? "md:w-32 w-14" : "w-10 md:w-24 "
-          }  `}
-        />
-
-        <DashedConnector />
-
-        <Forum
-          onClick={() => setActive("Forum")}
-          className={` rounded-full border-4 cursor-pointer border-black dark:border-gold ${
-            active === "Forum" ? "md:w-32 w-14" : "md:w-24 w-10"
-          }  `}
-        />
-
-        <DashedConnector />
-
-        <Queima
-          onClick={() => setActive("Queima")}
-          className={` rounded-full border-4 cursor-pointer border-black dark:border-gold ${
-            active === "Queima" ? "md:w-32 w-14" : "md:w-24 w-10"
-          }  `}
-        />
-
-        <DashedConnector />
-
-        <Inter
-          onClick={() => setActive("Inter")}
-          className={` rounded-full border-4 cursor-pointer border-black dark:border-gold ${
-            active === "Inter" ? "md:w-32 w-14" : "md:w-24 w-10"
-          }  `}
-        />
-
-        <DashedConnector />
-
-        <Btix
-          onClick={() => setActive("Btix")}
-          className={`rounded-full border-4 cursor-pointer border-black dark:border-gold ${
-            active === "Btix" ? "md:w-32 w-14" : "md:w-24 w-10"
-          }  `}
-        />
-
-        <DashedConnector />
-
-        <Casa
-          onClick={() => setActive("Casa")}
-          className={`rounded-full border-4 cursor-pointer border-black dark:border-gold ${
-            active === "Casa" ? "md:w-32 w-14" : "md:w-24 w-10"
-          }  `}
-        />
+            return (
+              <Fragment key={key}>
+                {index > 0 && <DashedConnector />}
+                <div
+                  ref={key === DEFAULT_COMPANY ? defaultLogoRef : undefined}
+                  className="shrink-0"
+                >
+                  <Logo
+                    onClick={() => setActive(key)}
+                    aria-label={companyDetails[key].company}
+                    className={`rounded-full border-4 cursor-pointer border-outline ${
+                      active === key ? "md:w-32 w-14" : "md:w-24 w-10"
+                    }`}
+                  />
+                </div>
+              </Fragment>
+            );
+          })}
+        </div>
       </div>
-      {active && (
-        <div className="md:flex gap-8">
-          <div className="flex flex-col">
-            <Card
-              imageOnRight
-              title={companyDetails[active].jobTitle}
-              image={getIllustration()}
-            >
-              <p>{companyDetails[active].company}</p>
-              <p>{companyDetails[active].period}</p>
-            </Card>
-            <Card
-              title={t("achievements")}
-              image={<Trophy width={150} height={150} />}
-            >
-              <ul>
-                {companyDetails[active].achievements.map(
-                  (achievement: string) => (
-                    <li
-                      className=" bg-turquoise mb-2 rounded-full flex items-center justify-start  py-1 px-2"
-                      key={achievement}
-                    >
-                      <div className="w-1/6">
-                        <div className="w-5 h-5 rounded-full bg-yellow-300 border-black border "></div>
-                      </div>
 
-                      <div className="w-5/6">
-                        <p
-                          style={{ fontSize: 8 }}
-                          className="text-xs text-start"
-                        >
-                          {achievement}
-                        </p>
-                      </div>
-                    </li>
-                  )
-                )}
-              </ul>
-            </Card>
-          </div>
-          <Card title={t("technologies")} image={null} imageOnRight>
-            <div className="grid grid-cols-3 ml-3 md:ml-0 md:grid-cols-4 gap-4">
-              {companyDetails[active].techStack.map((tech: string) => (
-                <TechBadge key={tech} name={tech} />
+      <div className="md:flex gap-8">
+        <div className="flex flex-col">
+          <Card
+            imageOnRight
+            title={details.jobTitle}
+            image={
+              <Illustration
+                width={illustrationSize}
+                height={illustrationSize}
+              />
+            }
+          >
+            <p>{details.company}</p>
+            <p>{details.period}</p>
+            <p className="text-sm">{details.location}</p>
+          </Card>
+
+          <Card
+            title={t("achievements")}
+            image={<Trophy width={150} height={150} />}
+          >
+            <ul>
+              {details.achievements.map((achievement) => (
+                <li
+                  className="bg-mint text-fieldInk border-2 border-fieldInk mb-2 rounded-full flex items-center justify-start py-1 px-2"
+                  key={achievement}
+                >
+                  <div className="w-1/6">
+                    <div className="w-5 h-5 rounded-full bg-sun border-fieldInk border"></div>
+                  </div>
+
+                  <div className="w-5/6">
+                    <p className="text-xs text-start">{achievement}</p>
+                  </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </Card>
         </div>
-      )}
+
+        <Card title={t("technologies")} image={null} imageOnRight>
+          <div className="grid grid-cols-3 ml-3 md:ml-0 md:grid-cols-4 gap-4">
+            {details.techStack.map((tech) => (
+              <TechBadge key={tech} name={tech} />
+            ))}
+          </div>
+        </Card>
+      </div>
     </div>
   );
 };

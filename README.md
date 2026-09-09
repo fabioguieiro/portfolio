@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Fabio Guieiro — Portfolio
 
-## Getting Started
+Personal portfolio of a frontend developer: a bilingual, statically rendered
+site with a project showcase and an interactive career timeline.
 
-First, run the development server:
+**Live:** [fabioguieiro.vercel.app](https://fabioguieiro.vercel.app)
+
+![Portfolio home page](docs/preview.webp)
+
+## Features
+
+- **Two languages, real routing** — `/en` and `/pt` are separate routes handled
+  by `next-intl` middleware. Switching languages keeps you on the page you were
+  reading, and every page ships its own localized `<title>`, description and
+  `hreflang` tags.
+- **Dark mode that sticks** — the choice is stored in `localStorage` and applied
+  by an inline script before the first paint, so a reload never flashes the
+  wrong theme.
+- **Fully static** — all four routes (`/en`, `/pt`, `/en/career`, `/pt/career`)
+  are prerendered at build time.
+- **Interactive career timeline** — pick a company to see the role, the
+  achievements and the stack used there.
+- **Responsive** — a slide-in side menu on mobile, a full navbar from `md` up.
+
+## Stack
+
+| | |
+|---|---|
+| Framework | [Next.js 14](https://nextjs.org) (App Router) |
+| Language | TypeScript (strict) |
+| Styling | [Tailwind CSS](https://tailwindcss.com) |
+| i18n | [next-intl](https://next-intl-docs.vercel.app) |
+| Hosting | [Vercel](https://vercel.com) |
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) — you will be redirected to
+`/en`, the default locale.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+| Command | What it does |
+|---|---|
+| `npm run dev` | Development server with hot reload |
+| `npm run build` | Production build (prerenders every locale) |
+| `npm start` | Serves the production build |
+| `npm run lint` | ESLint via `next lint` |
 
-## Learn More
+### Environment variables
 
-To learn more about Next.js, take a look at the following resources:
+| Variable | Required | Purpose |
+|---|---|---|
+| `NEXT_PUBLIC_SITE_URL` | No | Absolute base for Open Graph and canonical URLs. On Vercel this falls back to `VERCEL_PROJECT_PRODUCTION_URL` automatically, so it is only needed when hosting elsewhere. |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```
+src/
+├── app/
+│   └── [locale]/            # locale-segmented routes
+│       ├── layout.tsx       # metadata, static params, theme script, providers
+│       ├── page.tsx         # home: banner + projects + contacts
+│       └── career/          # career timeline (its own layout for metadata)
+├── components/
+│   ├── icons/               # inline SVG icons (UI + tech stack badges)
+│   ├── images/              # next/image wrappers for the static assets
+│   └── ...                  # Navbar, SideMenu, Timeline, Card, Work, Footer
+├── contexts/
+│   └── ThemeContext.tsx     # dark mode state + persistence
+├── hooks/
+│   └── useChangeLanguage.ts # swaps the locale segment of the current path
+├── config.ts                # supported locales, storage keys
+├── i18n.ts                  # next-intl request config
+└── middleware.ts            # locale detection and redirects
 
-## Deploy on Vercel
+messages/                    # en.json / pt.json translation catalogs
+public/                      # static assets (WebP images, CV)
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Adding a language
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Add the code to `locales` in [`src/config.ts`](src/config.ts).
+2. Create `messages/<code>.json` mirroring the keys in `messages/en.json`.
+3. Add the code to the `matcher` regex in [`src/middleware.ts`](src/middleware.ts).
+
+`generateStaticParams` picks the new locale up automatically, so its pages are
+prerendered on the next build.
+
+## Deploy
+
+The project is deployed on Vercel from the `main` branch. Any Node host works —
+`npm run build` followed by `npm start`.
+
+## License
+
+The code is free to learn from. The written content, CV and photographs are
+personal and not licensed for reuse.

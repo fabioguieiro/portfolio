@@ -1,56 +1,30 @@
 "use client";
+import { useLocale } from "next-intl";
+import { useRouter } from "next/navigation";
+import { useRef, useState } from "react";
+
 import { Navbar } from "@/components";
-import { Timeline } from "@/components/Timeline";
-import { useLocale, useTranslations } from "next-intl";
-import { usePathname, useRouter } from "next/navigation";
-import { useCallback, useState } from "react";
-import { SunIcon } from "../../../../public/icons/SunIcon";
-import { MoonIcon } from "../../../../public/icons/MoonIcon";
 import { DownloadCVButton } from "@/components/DownloadCVButton";
-import { SideMenu } from "@/components/SideMenu";
 import { Footer } from "@/components/Footer";
+import { SideMenu } from "@/components/SideMenu";
+import { Timeline } from "@/components/Timeline";
 
 const Career = () => {
-  const t = useTranslations("HomePage");
   const locale = useLocale();
   const router = useRouter();
-  const paths = usePathname().split("/");
+  const contactsRef = useRef<HTMLDivElement>(null);
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isDarkModeSelected, setIsDarkModeSelected] = useState<Boolean>(false);
-  const [currentLanguage, setCurrentLanguage] = useState<string>(paths[1]);
 
   const handleRouteToHome = () => {
-    router.replace(`/`);
+    router.push(`/${locale}`);
   };
 
-  const handleToggleDarkMode = useCallback(() => {
-    setIsDarkModeSelected((prev) => !prev);
-    if (!isDarkModeSelected) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
+  const handleScrollToContacts = () => {
+    if (isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
     }
-  }, [isDarkModeSelected]);
-
-  const handleChangeLanguage = (language: "en" | "pt") => {
-    if (paths.length > 2) {
-      if (language === "pt") {
-        router.replace(`/pt/${paths.slice(2).join("/")}`);
-        setCurrentLanguage("pt");
-      } else if (language === "en") {
-        router.replace(`/en/${paths.slice(2).join("/")}`);
-        setCurrentLanguage("en");
-      }
-    } else {
-      if (language === "pt") {
-        router.replace("/pt");
-        setCurrentLanguage("pt");
-      } else if (language === "en") {
-        router.replace("/en");
-        setCurrentLanguage("en");
-      }
-    }
+    contactsRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -59,11 +33,8 @@ const Career = () => {
         isMobileMenuOpen={isMobileMenuOpen}
         setIsMobileMenuOpen={setIsMobileMenuOpen}
         onClickProjects={handleRouteToHome}
+        onClickContacts={handleScrollToContacts}
         disabledButton={"career"}
-        currentLanguage={currentLanguage}
-        handleChangeLanguage={handleChangeLanguage}
-        handleToggleDarkMode={handleToggleDarkMode}
-        isDarkModeOn={!!isDarkModeSelected}
       />
       <div
         className={`fixed z-40 -left-[100%] h-full w-full ease-out duration-300 ${
@@ -72,17 +43,16 @@ const Career = () => {
       >
         <SideMenu
           handleCloseMenu={() => setIsMobileMenuOpen(false)}
-          currentLanguage={currentLanguage}
-          handleChangeLanguage={handleChangeLanguage}
-          isDarkModeOn={!!isDarkModeSelected}
           handleProjectClick={handleRouteToHome}
-          handleToggleDarkMode={handleToggleDarkMode}
+          handleContactsClick={handleScrollToContacts}
         />
       </div>
       <div className="w-full">
         <Timeline />
       </div>
-      <Footer />
+      <div ref={contactsRef}>
+        <Footer />
+      </div>
       <DownloadCVButton />
     </main>
   );

@@ -1,0 +1,13 @@
+export { BrazilFlagIcon } from "./BrazilFlagIcon";
+export { DownloadIcon } from "./DownloadIcon";
+export { EmailIcon } from "./EmailIcon";
+export { ExitIcon } from "./ExitIcon";
+export { GithubIcon } from "./GithubIcon";
+export { InstagramIcon } from "./InstagramIcon";
+export { LinkedinIcon } from "./LinkedinIcon";
+export { MenuIcon } from "./MenuIcon";
+export { MoonIcon } from "./MoonIcon";
+export { SunIcon } from "./SunIcon";
+export { UKFlagIcon } from "./UKFlagIcon";
+export { WhatsappIcon } from "./WhatsappIcon";
+export type { IconProps } from "./types";

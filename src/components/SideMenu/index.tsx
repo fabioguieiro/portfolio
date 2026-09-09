@@ -1,54 +1,67 @@
+"use client";
 import { useLocale, useTranslations } from "next-intl";
-import { MoonIcon } from "../../../public/icons/MoonIcon";
-import { SunIcon } from "../../../public/icons/SunIcon";
-import { TSideMenuProps } from "./types";
-import { UKFlagIcon } from "../../../public/icons/UKFlagIcon";
-import { BrazilFlagIcon } from "../../../public/icons/BrazilFlagIcon";
 import { useRouter } from "next/navigation";
+
+import {
+  BrazilFlagIcon,
+  MoonIcon,
+  SunIcon,
+  UKFlagIcon,
+} from "@/components/icons";
+import { useTheme } from "@/contexts/ThemeContext";
+import { useChangeLanguage } from "@/hooks/useChangeLanguage";
+
+import { TSideMenuProps } from "./types";
 
 export const SideMenu = ({
   handleProjectClick,
-  handleToggleDarkMode,
-  handleChangeLanguage,
-  isDarkModeOn,
-  currentLanguage,
+  handleContactsClick,
   handleCloseMenu,
 }: TSideMenuProps) => {
   const t = useTranslations("HomePage");
   const router = useRouter();
   const locale = useLocale();
+  const { isDarkModeOn, toggleTheme } = useTheme();
+  const { currentLanguage, changeLanguage } = useChangeLanguage();
 
   const handleRouteToCarrer = () => {
-    router.push(`${locale}/career`);
+    router.push(`/${locale}/career`);
   };
 
   return (
     <div className={`fixed h-full w-full z-40  md:hidden flex `}>
-      <div className="w-3/5 bg-cream dark:bg-royal border-r-4 border-black">
+      <div className="w-3/5 bg-ground text-ink border-r-4 border-outline">
         <div className="flex flex-col items-center h-full py-12">
           <button
             onClick={handleProjectClick}
-            className="w-full h-14 px-8 text-xl  font-primary  hover:underline  dark:text-gold md:flex md:h-full md:items-center"
+            className="w-full h-14 px-8 text-xl  font-primary hover:underline md:flex md:h-full md:items-center"
           >
             {t("projects")}
           </button>
 
           <button
             onClick={handleRouteToCarrer}
-            className="w-full h-14 px-8 text-xl  font-primary  hover:underline  dark:text-gold md:flex md:h-full md:items-center"
+            className="w-full h-14 px-8 text-xl  font-primary hover:underline md:flex md:h-full md:items-center"
           >
             {t("timeline")}
           </button>
 
-          <button className="w-full h-14 px-8 text-xl  font-primary  hover:underline  dark:text-gold md:flex md:h-full md:items-center">
+          <button
+            onClick={handleContactsClick}
+            className="w-full h-14 px-8 text-xl  font-primary hover:underline md:flex md:h-full md:items-center"
+          >
             {t("contacts")}
           </button>
           <div className="flex flex-col items-center">
-            <button className="mt-10 flex" onClick={handleToggleDarkMode}>
+            <button
+              className="mt-10 flex"
+              onClick={toggleTheme}
+              aria-label={t("toggleTheme")}
+            >
               {isDarkModeOn ? (
-                <SunIcon color={"#C4B274"} />
+                <SunIcon color="currentColor" />
               ) : (
-                <MoonIcon color={"black"} />
+                <MoonIcon color="currentColor" />
               )}
             </button>
             <div className="mt-6 flex gap-6">
@@ -59,7 +72,7 @@ export const SideMenu = ({
                   filter: currentLanguage === "en" ? "none" : "grayscale(100%)",
                   cursor: "pointer",
                 }}
-                onClick={() => handleChangeLanguage("en")}
+                onClick={() => changeLanguage("en")}
               />
               <BrazilFlagIcon
                 style={{
@@ -68,7 +81,7 @@ export const SideMenu = ({
                   filter: currentLanguage === "pt" ? "none" : "grayscale(100%)",
                   cursor: "pointer",
                 }}
-                onClick={() => handleChangeLanguage("pt")}
+                onClick={() => changeLanguage("pt")}
               />
             </div>
           </div>
@@ -76,7 +89,7 @@ export const SideMenu = ({
       </div>
       <div
         onClick={handleCloseMenu}
-        className="w-2/5 h-full bg-black bg-opacity-40"
+        className="w-2/5 h-full bg-fieldInk/50"
       ></div>
     </div>
   );

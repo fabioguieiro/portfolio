@@ -1,184 +1,188 @@
 "use client";
 import { useTranslations } from "next-intl";
 
-export const useDescriptions = () => {
+export const COMPANY_KEYS = [
+  "Teknisa",
+  "Forum",
+  "Queima",
+  "Inter",
+  "Btix",
+  "Casa",
+  "Venmo",
+  "GreatWolf",
+] as const;
+
+export type TCompanyKey = (typeof COMPANY_KEYS)[number];
+
+export type TCompanyDetails = {
+  company: string;
+  period: string;
+  jobTitle: string;
+  location: string;
+  achievements: string[];
+  techStack: string[];
+};
+
+export const useDescriptions = (): Record<TCompanyKey, TCompanyDetails> => {
   const t = useTranslations("Career");
 
   return {
-    Versa: {
-      period: t("versaPeriod"),
-      jobTitle: t("versaJobTitle"),
-      company: "Versa",
-      location: "Belo Horizonte, MG, Brazil",
-      techStack: [
-        "C#",
-        "ASP.NET",
-        "MySQL",
-        "Typescript",
-        "Xamarin",
-        "HTML",
-        "CSS",
-        "GIT",
-      ],
-      achievements: [t("versaAchievement1"), t("versaAchievement2")],
-    },
-
     Teknisa: {
+      company: "Teknisa",
       period: t("teknisaPeriod"),
       jobTitle: t("teknisaJobTitle"),
-      company: "Teknisa",
-      location: "Belo Horizonte, MG, Brazil",
-      techStack: [
-        "Vue.js",
-        "Python",
-        "Javascript",
-        "Rabbit MQ",
-        "HTML",
-        "CSS",
-        "MySQL",
-        "Angular",
-        "GIT",
-      ],
+      location: t("teknisaLocation"),
       achievements: [t("teknisaAchievement1"), t("teknisaAchievement2")],
-      responsabilities: ["Software Development", "Project Management"],
+      techStack: ["Vue.js", "Javascript", "React", "HTML", "CSS", "GIT"],
     },
 
     Forum: {
+      company: "Editora Fórum",
       period: t("forumPeriod"),
       jobTitle: t("forumJobTitle"),
-      company: "Editora Forum",
-      location: "Remote",
+      location: t("forumLocation"),
+      achievements: [t("forumAchievement1"), t("forumAchievement2")],
       techStack: [
         "React",
-        "Redux",
         "Next.js",
         "Typescript",
+        "Javascript",
         "Tailwind",
-        "HTML",
-        "CSS",
         "Node.js",
+        "Redux",
         "AWS",
         "GIT",
       ],
-      achievements: [t("forumAchievement1"), t("forumAchievement2")],
-      responsabilities: ["Software Development", "Deployment", "Design"],
     },
 
     Queima: {
+      company: "Queima Diária",
       period: t("queimaPeriod"),
       jobTitle: t("queimaJobTitle"),
-      company: "Queima Diária",
-      location: "Remote",
-      techStack: [
-        "React",
-        "React Native",
-        "Styled Components",
-        "Typescript",
-        "HTML",
-        "CSS",
-        "Tizen",
-        "WebOS",
-        "Jest",
-        "GIT",
-      ],
+      location: t("queimaLocation"),
       achievements: [
         t("queimaAchievement1"),
         t("queimaAchievement2"),
         t("queimaAchievement3"),
-        t("queimaAchievement4"),
       ],
-      responsabilities: [
-        "Software Development",
-        "Project Management",
-        "Design",
-        "Deployment",
-        "App stores relationship",
+      techStack: [
+        "React",
+        "React Native",
+        "Typescript",
+        "Javascript",
+        "Styled Components",
+        "Redux",
+        "CSS",
+        "Tizen",
+        "WebOS",
+        "GIT",
       ],
     },
 
     Inter: {
+      company: "Banco Inter",
       period: t("interPeriod"),
       jobTitle: t("interJobTitle"),
-      company: "Banco Inter",
-      location: "Remote",
-      techStack: [
-        "React",
-        "Typescript",
-        "Styled Components",
-        "Postgre",
-        "HTML",
-        "CSS",
-        "New Relic",
-        "Jest",
-        "AWS",
-        "GIT",
-      ],
+      location: t("interLocation"),
       achievements: [
         t("interAchievement1"),
         t("interAchievement2"),
         t("interAchievement3"),
       ],
-      responsabilities: [
-        "Software Development",
-        "Project Management",
-        "Deployment",
+      techStack: [
+        "React",
+        "Typescript",
+        "Styled Components",
+        "Jest",
+        "New Relic",
+        "AWS",
+        "GIT",
       ],
     },
 
     Btix: {
+      company: "Btix",
       period: t("btixPeriod"),
       jobTitle: t("btixJobTitle"),
-      company: "BTIX",
-      location: "Remote",
-      techStack: [
-        "React",
-        "Node.js",
-        "React Native",
-        "Next.js",
-        "MongoDB",
-        "Typescript",
-        "CSS",
-        "HTML",
-        "Jest",
-        "Cypress",
-        "GIT",
-      ],
+      location: t("btixLocation"),
       achievements: [
         t("btixAchievement1"),
         t("btixAchievement2"),
         t("btixAchievement3"),
       ],
-      responsabilities: [
-        "Software Development",
-        "Project Management",
-        "Team Management",
-        "Deployment",
+      techStack: [
+        "React",
+        "Next.js",
+        "Typescript",
+        "Node.js",
+        "React Native",
+        "MongoDB",
+        "Material UI",
+        "Mantine UI",
+        "Yup",
+        "GIT",
       ],
     },
+
     Casa: {
-      period: t("casaPeriod"),
-      jobTitle: t("btixJobTitle"),
       company: "Casa do Saber",
-      location: "Remote",
+      period: t("casaPeriod"),
+      jobTitle: t("casaJobTitle"),
+      location: t("casaLocation"),
+      achievements: [t("casaAchievement1"), t("casaAchievement2")],
       techStack: [
         "React",
         "React Native",
-        "Styled Components",
         "Typescript",
-        "CSS",
-        "HTML",
-        "Jest",
-        "WebOS",
+        "Styled Components",
         "Tizen",
+        "WebOS",
+        "Jest",
         "GIT",
       ],
-      achievements: [t("casaAchievement1"), t("casaAchievement2")],
-      responsabilities: [
-        "Project Management",
-        "Design",
-        "Software Development",
-        "Deployment",
-        "App stores relationship",
+    },
+
+    Venmo: {
+      company: "PayPal / Venmo",
+      period: t("venmoPeriod"),
+      jobTitle: t("venmoJobTitle"),
+      location: t("venmoLocation"),
+      achievements: [
+        t("venmoAchievement1"),
+        t("venmoAchievement2"),
+        t("venmoAchievement3"),
+      ],
+      techStack: [
+        "React",
+        "Node.js",
+        "Typescript",
+        "GraphQL",
+        "Apollo Client",
+        "GIT",
+      ],
+    },
+
+    GreatWolf: {
+      company: "Great Wolf Lodge",
+      period: t("greatWolfPeriod"),
+      jobTitle: t("greatWolfJobTitle"),
+      location: t("greatWolfLocation"),
+      achievements: [
+        t("greatWolfAchievement1"),
+        t("greatWolfAchievement2"),
+        t("greatWolfAchievement3"),
+        t("greatWolfAchievement4"),
+      ],
+      techStack: [
+        "React",
+        "Redux",
+        "Javascript",
+        "Styled Components",
+        "Jest",
+        "Playwright",
+        "Yup",
+        "Azure DevOps",
+        "GIT",
       ],
     },
   };

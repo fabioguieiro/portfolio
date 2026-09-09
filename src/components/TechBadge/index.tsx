@@ -1,30 +1,32 @@
-import { AngularIcon } from "../../../public/icons/tech/AngularIcon";
-import { AWSIcon } from "../../../public/icons/tech/AWSIcon";
-import { CSharpIcon } from "../../../public/icons/tech/CSharpIcon";
-import { CssIcon } from "../../../public/icons/tech/CssIcon";
-import { CypressIcon } from "../../../public/icons/tech/CypressIcon";
-import { DotNetIcon } from "../../../public/icons/tech/DotNetIcon";
-import { GitIcon } from "../../../public/icons/tech/GitIcon";
-import { HtmlIcon } from "../../../public/icons/tech/HtmlIcon";
-import { JavascriptIcon } from "../../../public/icons/tech/JavascriptIcon";
-import { JestIcon } from "../../../public/icons/tech/JestIcon";
-import { MongoIcon } from "../../../public/icons/tech/MongoIcon";
-import { MySqlIcon } from "../../../public/icons/tech/MySqlIcon";
-import { NewRelicIcon } from "../../../public/icons/tech/NewRelic";
-import { NextIcon } from "../../../public/icons/tech/NextIcon";
-import { NodeIcon } from "../../../public/icons/tech/NodeIcon";
-import { PostgreIcon } from "../../../public/icons/tech/PostGreIcon";
-import { PythonIcon } from "../../../public/icons/tech/PythonIcon";
-import { RabbitMQIcon } from "../../../public/icons/tech/RabbitMQIcon";
-import { ReactIcon } from "../../../public/icons/tech/ReactIcon";
-import { ReduxIcon } from "../../../public/icons/tech/ReduxIcon";
-import { StyledComponentsIcon } from "../../../public/icons/tech/StyledComponentsIcon";
-import { TailwindIcon } from "../../../public/icons/tech/TailwindIcon";
-import { TizenIcon } from "../../../public/icons/tech/TizenIcon";
-import { TypescriptIcon } from "../../../public/icons/tech/TypescriptIcon";
-import { VueIcon } from "../../../public/icons/tech/VueIcon";
-import { WebosIcon } from "../../../public/icons/tech/WebosIcon";
-import { XamarinIcon } from "../../../public/icons/tech/XamarinIcon";
+import {
+  AWSIcon,
+  AngularIcon,
+  CSharpIcon,
+  CssIcon,
+  CypressIcon,
+  DotNetIcon,
+  GitIcon,
+  HtmlIcon,
+  JavascriptIcon,
+  JestIcon,
+  MongoIcon,
+  MySqlIcon,
+  NewRelicIcon,
+  NextIcon,
+  NodeIcon,
+  PostgreIcon,
+  PythonIcon,
+  RabbitMQIcon,
+  ReactIcon,
+  ReduxIcon,
+  StyledComponentsIcon,
+  TailwindIcon,
+  TizenIcon,
+  TypescriptIcon,
+  VueIcon,
+  WebosIcon,
+  XamarinIcon,
+} from "@/components/icons/tech";
 
 type TTechBadgeProps = {
   name: string;
@@ -202,13 +204,23 @@ export const TechBadge = ({ name }: TTechBadgeProps) => {
           </div>
         );
       default:
-        return <>{name}</>;
+        return null;
     }
   };
+  const icon = renderTechBadge({ name });
+
   return (
-    <div className="w-24 h-24 border-4 mb-2 border-black rounded-md flex  flex-col items-center justify-between">
-      {renderTechBadge({ name })}
-      <p className="text-xs text-center font-bold font-primary">{name}</p>
+    <div className="w-24 h-24 border-4 mb-2 border-outline bg-surface text-ink rounded-md flex flex-col items-center justify-between">
+      {icon ? (
+        <>
+          {icon}
+          <p className="text-xs text-center font-bold font-primary">{name}</p>
+        </>
+      ) : (
+        <p className="h-full px-1 flex items-center text-center text-sm font-bold font-primary">
+          {name}
+        </p>
+      )}
     </div>
   );
 };

@@ -15,7 +15,7 @@ export const Card = ({
 }: TCardProps) => {
   return (
     <div
-      className={`bg-cream w-96 md:w-[28rem] rounded-lg border-black border-2 relative mt-4 min-h-52 `}
+      className={`bg-surface text-ink w-96 md:w-[28rem] rounded-lg border-outline border-2 relative mt-4 min-h-52 `}
     >
       <CardHeader />
       <div
