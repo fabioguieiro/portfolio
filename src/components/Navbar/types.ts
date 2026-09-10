@@ -8,5 +8,4 @@ export type TNavbarProps = {
   isMobileMenuOpen: boolean;
   setIsMobileMenuOpen: (val: boolean) => void;
   onClickProjects: () => void;
-  onClickContacts: () => void;
 };

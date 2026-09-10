@@ -15,7 +15,6 @@ import { TSideMenuProps } from "./types";
 
 export const SideMenu = ({
   handleProjectClick,
-  handleContactsClick,
   handleCloseMenu,
 }: TSideMenuProps) => {
   const t = useTranslations("HomePage");
@@ -26,6 +25,10 @@ export const SideMenu = ({
 
   const handleRouteToCarrer = () => {
     router.push(`/${locale}/career`);
+  };
+
+  const handleRouteToContacts = () => {
+    router.push(`/${locale}/contacts`);
   };
 
   return (
@@ -47,7 +50,7 @@ export const SideMenu = ({
           </button>
 
           <button
-            onClick={handleContactsClick}
+            onClick={handleRouteToContacts}
             className="w-full h-14 px-8 text-xl  font-primary hover:underline md:flex md:h-full md:items-center"
           >
             {t("contacts")}

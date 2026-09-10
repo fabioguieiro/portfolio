@@ -3,7 +3,9 @@
     "title": "Fabio Guieiro — Frontend Developer",
     "description": "Senior frontend engineer with 7+ years in React, TypeScript and GraphQL across fintech, hospitality and streaming. See my projects and career timeline.",
     "careerTitle": "Career — Fabio Guieiro",
-    "careerDescription": "Professional timeline: Great Wolf Lodge, PayPal / Venmo, Casa do Saber, Btix, Banco Inter, Queima Diária, Editora Fórum and Teknisa."
+    "careerDescription": "Professional timeline: Great Wolf Lodge, PayPal / Venmo, Casa do Saber, Btix, Banco Inter, Queima Diária, Editora Fórum and Teknisa.",
+    "contactsTitle": "Contact — Fabio Guieiro",
+    "contactsDescription": "Email, LinkedIn, GitHub, WhatsApp and Instagram. Open to senior remote frontend roles in the US or Europe."
   },
   "HomePage": {
     "toggleTheme": "Toggle dark mode",
@@ -64,5 +66,25 @@
     "greatWolfAchievement2": "Shipped a 7-screen Season Pass flow in ~3 months: 5,000+ passes and $500K+ in revenue.",
     "greatWolfAchievement3": "Delivered a voucher platform in ~2 weeks that issued 500,000+ vouchers across 22 lodges.",
     "greatWolfAchievement4": "Optimized Core Web Vitals and wrote the unit and end-to-end coverage for booking flows."
+  },
+  "Contacts": {
+    "pageTitle": "Say hello",
+    "availability": "Open to senior remote roles in the US or Europe.",
+    "basedIn": "Belo Horizonte, Brazil · English / Portuguese",
+    "emailLabel": "Email",
+    "emailNote": "write me",
+    "linkedinLabel": "LinkedIn",
+    "linkedinNote": "hire me",
+    "githubLabel": "GitHub",
+    "githubNote": "read my code",
+    "whatsappLabel": "WhatsApp",
+    "whatsappNote": "fastest",
+    "instagramLabel": "Instagram",
+    "instagramNote": "off duty",
+    "copy": "Copy",
+    "copied": "Copied",
+    "copyAria": "Copy {label} to clipboard",
+    "openAria": "Open {label}",
+    "marquee": "Remote · Belo Horizonte · EN / PT · Available now"
   }
 }

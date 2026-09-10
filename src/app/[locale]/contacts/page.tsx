@@ -1,22 +1,22 @@
 "use client";
-import { useRef, useState } from "react";
+import { useLocale } from "next-intl";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
-import { Banner, Navbar } from "@/components";
+import { Navbar } from "@/components";
+import { Contacts } from "@/components/Contacts";
 import { DownloadCVButton } from "@/components/DownloadCVButton";
 import { Footer } from "@/components/Footer";
 import { SideMenu } from "@/components/SideMenu";
-import { Work } from "@/components/Work";
 
-export default function Home() {
-  const projectsRef = useRef<HTMLDivElement>(null);
+const ContactsPage = () => {
+  const locale = useLocale();
+  const router = useRouter();
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const handleScrollToProjects = () => {
-    if (isMobileMenuOpen) {
-      setIsMobileMenuOpen(false);
-    }
-    projectsRef.current?.scrollIntoView({ behavior: "smooth" });
+  const handleRouteToHome = () => {
+    router.push(`/${locale}`);
   };
 
   return (
@@ -24,7 +24,8 @@ export default function Home() {
       <Navbar
         isMobileMenuOpen={isMobileMenuOpen}
         setIsMobileMenuOpen={setIsMobileMenuOpen}
-        onClickProjects={handleScrollToProjects}
+        onClickProjects={handleRouteToHome}
+        disabledButton={"contacts"}
       />
       <div
         className={`fixed z-40 -left-[100%] h-full w-full ease-out duration-300 ${
@@ -33,15 +34,14 @@ export default function Home() {
       >
         <SideMenu
           handleCloseMenu={() => setIsMobileMenuOpen(false)}
-          handleProjectClick={handleScrollToProjects}
+          handleProjectClick={handleRouteToHome}
         />
       </div>
-      <Banner />
-      <div ref={projectsRef}>
-        <Work />
-      </div>
+      <Contacts />
       <Footer />
       <DownloadCVButton />
     </main>
   );
-}
+};
+
+export default ContactsPage;

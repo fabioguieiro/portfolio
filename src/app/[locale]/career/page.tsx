@@ -1,7 +1,7 @@
 "use client";
 import { useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 import { Navbar } from "@/components";
 import { DownloadCVButton } from "@/components/DownloadCVButton";
@@ -12,19 +12,11 @@ import { Timeline } from "@/components/Timeline";
 const Career = () => {
   const locale = useLocale();
   const router = useRouter();
-  const contactsRef = useRef<HTMLDivElement>(null);
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleRouteToHome = () => {
     router.push(`/${locale}`);
-  };
-
-  const handleScrollToContacts = () => {
-    if (isMobileMenuOpen) {
-      setIsMobileMenuOpen(false);
-    }
-    contactsRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -33,7 +25,6 @@ const Career = () => {
         isMobileMenuOpen={isMobileMenuOpen}
         setIsMobileMenuOpen={setIsMobileMenuOpen}
         onClickProjects={handleRouteToHome}
-        onClickContacts={handleScrollToContacts}
         disabledButton={"career"}
       />
       <div
@@ -44,15 +35,12 @@ const Career = () => {
         <SideMenu
           handleCloseMenu={() => setIsMobileMenuOpen(false)}
           handleProjectClick={handleRouteToHome}
-          handleContactsClick={handleScrollToContacts}
         />
       </div>
       <div className="w-full">
         <Timeline />
       </div>
-      <div ref={contactsRef}>
-        <Footer />
-      </div>
+      <Footer />
       <DownloadCVButton />
     </main>
   );

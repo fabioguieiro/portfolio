@@ -32,6 +32,11 @@
     --wash-opacity: 0.45;
   }
 
+  body {
+    background-color: rgb(var(--ground));
+    color: rgb(var(--ink));
+  }
+
   .dark {
     --ground: 16 31 46; /* #101F2E */
     --surface: 27 58 87; /* #1B3A57 */
@@ -48,6 +53,49 @@
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  /*
+   * The neo-brutalist press: the element moves into its own hard shadow
+   * instead of glowing. Offset and travel must match or the edge drifts.
+   */
+  .press {
+    box-shadow: 6px 6px 0 #14110e;
+    transition:
+      transform 0.12s ease,
+      box-shadow 0.12s ease;
+  }
+  .press:hover,
+  .press:focus-within {
+    transform: translate(6px, 6px);
+    box-shadow: 0 0 0 #14110e;
+  }
+
+  .marquee-track {
+    display: inline-flex;
+    white-space: nowrap;
+    animation: marquee 26s linear infinite;
+  }
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .press,
+    .press:hover,
+    .press:focus-within {
+      transform: none;
+      transition: none;
+      box-shadow: 6px 6px 0 #14110e;
+    }
+    .marquee-track {
+      animation: none;
+    }
   }
 
   /* the rainbow wash needs to sit back on the dark ground */

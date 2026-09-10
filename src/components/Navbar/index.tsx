@@ -23,7 +23,6 @@ export const Navbar = ({
   isMobileMenuOpen,
   setIsMobileMenuOpen,
   onClickProjects,
-  onClickContacts,
 }: TNavbarProps) => {
   const t = useTranslations("HomePage");
   const router = useRouter();
@@ -34,6 +33,12 @@ export const Navbar = ({
   const handleRouteToCarrer = () => {
     if (disabledButton !== "career") {
       router.push(`/${locale}/career`);
+    }
+  };
+
+  const handleRouteToContacts = () => {
+    if (disabledButton !== "contacts") {
+      router.push(`/${locale}/contacts`);
     }
   };
 
@@ -54,7 +59,7 @@ export const Navbar = ({
         <NavLogo />
         <NavItem onClick={onClickProjects} name={t("projects")} />
         <NavItem onClick={handleRouteToCarrer} name={t("timeline")} />
-        <NavItem onClick={onClickContacts} name={t("contacts")} />
+        <NavItem onClick={handleRouteToContacts} name={t("contacts")} />
       </div>
       <div className="items-center w-16 md:w-auto flex">
         <button

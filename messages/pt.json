@@ -3,7 +3,9 @@
     "title": "Fabio Guieiro — Desenvolvedor Frontend",
     "description": "Engenheiro frontend sênior com mais de 7 anos em React, TypeScript e GraphQL nos setores de fintech, hotelaria e streaming. Veja meus projetos e trajetória.",
     "careerTitle": "Trajetória — Fabio Guieiro",
-    "careerDescription": "Trajetória profissional: Great Wolf Lodge, PayPal / Venmo, Casa do Saber, Btix, Banco Inter, Queima Diária, Editora Fórum e Teknisa."
+    "careerDescription": "Trajetória profissional: Great Wolf Lodge, PayPal / Venmo, Casa do Saber, Btix, Banco Inter, Queima Diária, Editora Fórum e Teknisa.",
+    "contactsTitle": "Contato — Fabio Guieiro",
+    "contactsDescription": "E-mail, LinkedIn, GitHub, WhatsApp e Instagram. Aberto a vagas sênior de frontend remotas nos EUA ou na Europa."
   },
   "HomePage": {
     "toggleTheme": "Alternar modo escuro",
@@ -64,5 +66,25 @@
     "greatWolfAchievement2": "Entreguei um fluxo de Season Pass de 7 telas em ~3 meses: 5.000+ passes e US$ 500K+ em receita.",
     "greatWolfAchievement3": "Criei em ~2 semanas a plataforma de vouchers que emitiu 500.000+ vouchers em 22 resorts.",
     "greatWolfAchievement4": "Otimizei Core Web Vitals e escrevi os testes unitários e ponta a ponta dos fluxos de reserva."
+  },
+  "Contacts": {
+    "pageTitle": "Vamos conversar",
+    "availability": "Aberto a vagas sênior remotas nos EUA ou na Europa.",
+    "basedIn": "Belo Horizonte, Brasil · Inglês / Português",
+    "emailLabel": "E-mail",
+    "emailNote": "me escreva",
+    "linkedinLabel": "LinkedIn",
+    "linkedinNote": "me contrate",
+    "githubLabel": "GitHub",
+    "githubNote": "leia meu código",
+    "whatsappLabel": "WhatsApp",
+    "whatsappNote": "mais rápido",
+    "instagramLabel": "Instagram",
+    "instagramNote": "fora do expediente",
+    "copy": "Copiar",
+    "copied": "Copiado",
+    "copyAria": "Copiar {label} para a área de transferência",
+    "openAria": "Abrir {label}",
+    "marquee": "Remoto · Belo Horizonte · EN / PT · Disponível agora"
   }
 }
